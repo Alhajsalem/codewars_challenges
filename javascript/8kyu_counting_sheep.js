@@ -19,3 +19,9 @@ function countSheeps(arrayOfSheep) {
     false, false, true,  true ];
     
 assert.equal(countSheeps(array1),17)
+
+// better solution 
+
+function countSheeps(arrayOfSheeps) {
+    return arrayOfSheeps.filter(Boolean).length;
+  }
