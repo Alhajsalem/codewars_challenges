@@ -20,3 +20,12 @@ def high_and_low(numbers):
 
 
 high_and_low("1 2 3 4 5")  # return "5 1"
+
+
+# https://www.codewars.com/kata/59f4a0acbee84576800000af
+
+from statistics import mean
+from itertools import combinations
+
+def pos_average(s):
+    return mean(a == b for combo in combinations(s.split(', '), 2) for a, b in zip(*combo)) * 100.
