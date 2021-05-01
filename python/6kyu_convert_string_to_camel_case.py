@@ -28,3 +28,12 @@ def validate_pin(pin):
 assert validate_pin("1234") == True
 
 validate_pin = lambda pin: len(pin) in (4, 6) and pin.isdigit()
+
+
+#https://www.codewars.com/kata/539a0e4d85e3425cb0000a88/train/python
+
+class add(int): 
+    def __call__(self, n):
+        return add(self+n)
+
+x = add(1)(2)
