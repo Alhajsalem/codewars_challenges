@@ -25,3 +25,5 @@ def validate_pin(pin):
     return True if re.fullmatch(r'\d{4}|\d{6}', pin) else False
 
 assert validate_pin("1234") == True
+
+validate_pin = lambda pin: len(pin) in (4, 6) and pin.isdigit()
