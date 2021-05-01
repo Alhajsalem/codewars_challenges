@@ -37,3 +37,18 @@ class add(int):
         return add(self+n)
 
 x = add(1)(2)
+
+
+class Person(object):
+    def __init__(self,name, age):
+        self.name = name
+        self.age = age
+    def __setattr__(self,name, value):
+        if isinstance(value, str):
+            self.__dict__[name] = value.upper()
+        else:
+            self.__dict__[name] = value*150
+    def __repr__(self):
+        return "Person Object with following name {} and age {}".format(self.name, self.age)
+
+per = Person("Hans Müller",22)
