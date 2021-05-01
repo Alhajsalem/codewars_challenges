@@ -20,6 +20,7 @@ def find_it(seq):
             
 assert find_it([20,1,-1,2,-2,3,3,5,5,1,2,4,20,4,-1,-2,5]) == 5
 
+#https://www.codewars.com/kata/55f8a9c06c018a0d6e000132/train/python
 import re
 def validate_pin(pin):
     return True if re.fullmatch(r'\d{4}|\d{6}', pin) else False
