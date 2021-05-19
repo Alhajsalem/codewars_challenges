@@ -36,3 +36,12 @@ assert (valid_solution([[1, 3, 2, 5, 7, 9, 4, 6, 8],
                       [3, 6, 5, 8, 1, 7, 9, 2, 4], 
                       [8, 7, 9, 6, 4, 2, 1, 3, 5]])) == False
 
+
+class Ball(object):
+    def __init__(self, ball_type= "regular"):
+        self.ball_type = ball_type
+
+ball1 = Ball()
+ball2 = Ball("super")
+print(ball1.ball_type) 
+ball2.ball_type 

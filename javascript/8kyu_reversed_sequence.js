@@ -18,3 +18,25 @@ let arr = [];
     } return arr;
 };
 reverseSeq(5)//, [5, 4, 3, 2, 1]
+
+const flip = (d, a)=>{
+  if (d === "R") return a.sort((x,y) => x-y);
+  if (d === "L") return a.sort((x,y) => y-x);
+  }
+var x = flip('R', [3, 2, 1, 2])    // =>  [1, 2, 2, 3]
+
+
+function smallEnough(a, limit){
+    var x = []
+    a.forEach(element => {
+    if (element > limit){
+      x.push(element)
+    }
+  });
+  return x.length == 0 ? true :false
+}
+//better solution 
+
+function smallEnough_1(a, limit){
+  return a.every(x => x <= limit);
+}
