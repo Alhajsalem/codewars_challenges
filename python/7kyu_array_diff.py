@@ -57,3 +57,36 @@ def combine(*dc):
     for d in dc:
         c.update(d)
     return c
+
+
+
+def duplicate_count(text):
+    arr = [letter.capitalize() for letter in text]
+    x = list(set(arr))
+    y = "".join(arr)
+    count = 0
+    for i in x:
+        if y.count(i) > 1:
+            count += 1 
+    return count
+
+duplicate_count("indivisibility")
+
+def duplicate_count(text):
+    count = 0
+    for c in set(text.lower()):
+        if text.lower().count(c) > 1:
+            count += 1
+    return count
+
+
+
+def duplicate_encode(word):
+    result = ""
+    for letter in word.lower():
+        if word.lower().count(letter) > 1:
+            result += ")"
+        else:
+           result += "("
+    return result
+duplicate_encode("(( @")#,"()()()"

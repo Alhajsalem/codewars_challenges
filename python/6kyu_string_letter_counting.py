@@ -85,3 +85,48 @@ t = Table([[ 5, 6, 7, 8, 9],
             [20, 21, 22, 23, 24]])
 
 print(t.walk(DIRECTION_DOWN, DIRECTION_LEFT))
+
+# https://www.codewars.com/kata/541c8630095125aba6000c00/train/python
+def digital_root(n):
+    result = sum([int(x)for x in str(n)])
+    if result < 10:
+        return result
+    else:
+        return digital_root(result)
+
+def digital_root(n):
+    while n >= 10:
+        n = sum(divmod(n, 10))
+    return n
+
+# https://www.codewars.com/kata/521c2db8ddc89b9b7a0000c1/train/python
+def snail(array):
+    results = []
+    while len(array) > 0:
+        results = results + array[0]
+        del array[0]
+        if len(array) > 0:
+            for i in array:
+                results = results + [i[-1]]
+                del i[-1]
+            if array[-1]:
+                results = results+ array[-1][::-1]
+                del array[-1]
+            for i in (array):
+                results = results + [i[0]]
+                del i[0]
+    return results
+
+array = [[1,2,3],
+         [4,5,6],
+         [7,8,9]]
+snail(array)
+
+# https://www.codewars.com/kata/5277c8a221e209d3f6000b56/train/python
+
+def validBraces(string):
+    while '()' in string or '{}' in string or '[]' in string:
+        string = string.replace('()', '')
+        string = string.replace('{}', '')
+        string = string.replace('[]', '')
+    return False if len(string) != 0 else True
