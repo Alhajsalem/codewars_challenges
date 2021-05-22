@@ -140,3 +140,16 @@ count_bits(10)#, 2
 # better solution 
 def countBits(n):
     return bin(n).count("1")
+
+
+# https://www.codewars.com/kata/514a024011ea4fb54200004b/train/python
+import re
+def domain_name(url):
+    print(re.sub('[a-z]*-//', '', ur))
+    print(url.replace(""))
+
+
+domain_name("http://google.com")
+domain_name("http://google.co.jp")
+domain_name("www.xakep.ru")
+domain_name("https://youtube.com")
