@@ -130,3 +130,13 @@ def validBraces(string):
         string = string.replace('{}', '')
         string = string.replace('[]', '')
     return False if len(string) != 0 else True
+
+# https://www.codewars.com/kata/526571aae218b8ee490006f4/train/python
+
+def count_bits(n):
+    return sum([int(i) for i in "{0:b}".format(n)])
+count_bits(10)#, 2
+
+# better solution 
+def countBits(n):
+    return bin(n).count("1")
