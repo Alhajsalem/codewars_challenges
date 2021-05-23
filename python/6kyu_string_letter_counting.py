@@ -40,7 +40,6 @@ class Table:
             arr = []
             for i in range(self.x):
                 for j in range(self.y-1,-1,-1):
-                    print(i,j)
                     arr.append(self.data[i][j])
             return arr 
            
@@ -84,7 +83,7 @@ t = Table([[ 5, 6, 7, 8, 9],
             [15, 16, 17, 18, 19], 
             [20, 21, 22, 23, 24]])
 
-print(t.walk(DIRECTION_DOWN, DIRECTION_LEFT))
+t.walk(DIRECTION_DOWN, DIRECTION_LEFT)
 
 # https://www.codewars.com/kata/541c8630095125aba6000c00/train/python
 def digital_root(n):
@@ -159,5 +158,27 @@ domain_name("icann.org")
 # better solution 
 
 import re
-def domain_name(url):
+def domain_name_1(url):
     return re.search('(https?://)?(www\d?\.)?(?P<name>[\w-]+)\.', url).group('name')
+
+
+def domain_name_2(url):
+    pattern =  re.compile('(https?://)?(www\d?\.)?(?P<name>[\w-]+)\.')
+    subbed_urls = pattern.search(url).group("name")
+    return subbed_urls
+
+# https://www.codewars.com/kata/583203e6eb35d7980400002a/train/python
+
+def count_smileys(arr):
+    pattern =  re.compile(r'[:;]{1}[-~]?[)D]{1}')
+    count=0
+    for item in arr:
+        if pattern.match(item) != None:
+            count +=1
+    return count
+
+# better solution
+
+from re import findall
+def count_smileys(arr):
+    return len(list(findall(r"[:;][-~]?[)D]", " ".join(arr))))
