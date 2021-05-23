@@ -182,3 +182,14 @@ def count_smileys(arr):
 from re import findall
 def count_smileys(arr):
     return len(list(findall(r"[:;][-~]?[)D]", " ".join(arr))))
+
+
+
+def word_mesh(words):
+    for index,word in enumerate(words):
+        for i in range(len(word),0,-1):
+            print(word[i])
+
+
+
+word_mesh(["allow", "lowering"])
