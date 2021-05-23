@@ -145,11 +145,19 @@ def countBits(n):
 # https://www.codewars.com/kata/514a024011ea4fb54200004b/train/python
 import re
 def domain_name(url):
-    print(re.sub('[a-z]*-//', '', ur))
-    print(url.replace(""))
+    pattern = re.compile(r"https://www.|http://|https://|www.")
+    matches = pattern.finditer(url)
+    url_start = ""
+    for match in matches:
+        url_start = url[match.span()[1]:]
+    if url_start != "":  
+        return(url_start[0:url_start.find(".")])
+    else:
+        return (url[0:url.find(".")])
+domain_name("icann.org")
 
+# better solution 
 
-domain_name("http://google.com")
-domain_name("http://google.co.jp")
-domain_name("www.xakep.ru")
-domain_name("https://youtube.com")
+import re
+def domain_name(url):
+    return re.search('(https?://)?(www\d?\.)?(?P<name>[\w-]+)\.', url).group('name')
