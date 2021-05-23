@@ -184,12 +184,25 @@ def count_smileys(arr):
     return len(list(findall(r"[:;][-~]?[)D]", " ".join(arr))))
 
 
+# https://www.codewars.com/kata/5c1ae703ba76f438530000a2/train/python
 
 def word_mesh(words):
-    for index,word in enumerate(words):
-        for i in range(len(word),0,-1):
-            print(word[i])
+    str_compare = ""
+    result = ""
+    for index,word in enumerate(words[:len(words)-1]):
+        for i in reversed(word):
+            str_compare = str_compare +i
+            if words[index+1].startswith(str_compare[::-1]) == True:
+                result += str_compare[::-1]
+                str_compare = ""
+                break
+    return result
+        
 
+import re
+# ?=\1 --> relationship to group 1 --> how many letters do we have in common betwen the groups
+def word_mesh_1(arr):
+    common = re.findall(r'(.+) (?=\1)',' '.join(arr))
+    return ''.join(common) if len(common) + 1 == len(arr) else 'failed to mesh'
 
-
-word_mesh(["allow", "lowering"])
+word_mesh_1(['california', 'niagara', 'arachnophobia'])#, 'biannual', 'alumni', 'nibbles', 'blessing'])
