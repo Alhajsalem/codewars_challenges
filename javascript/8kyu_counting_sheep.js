@@ -60,3 +60,30 @@ function findOutlier(int){
   var odd = int.filter(a=>a%2!==0);
   return even.length==1? even[0] : odd[0];
 }
+
+// https://www.codewars.com/kata/54da539698b8a2ad76000228/train/javascript
+
+function isValidWalk(walk) {
+  array_n = []
+  array_s = []
+  array_w = []
+  array_e = []
+  walk.forEach(function(item){
+    if (item == 'n') array_n.push(item)
+    if (item == 's') array_s.push(item)
+    if (item == 'e') array_e.push(item)
+    if (item == 'w') array_w.push(item)
+  })
+  return (array_n.length == array_s.length)  && (array_w.length == array_e.length) && ((array_n.length+array_s.length+array_w.length+array_e.length)==10) ? true : false
+}
+
+// better solution 
+function isValidWalk(walk) {
+  const north = walk.filter(item => { return item === "n" }).length;
+  const south = walk.filter(item => { return item === "s" }).length;
+  const east = walk.filter(item => { return item === "e" }).length;
+  const west = walk.filter(item => { return item === "w" }).length;
+  
+  return walk.length === 10 && north === south && east === west;
+}
+
