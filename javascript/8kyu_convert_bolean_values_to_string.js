@@ -44,7 +44,7 @@ function firstNonConsecutive (arr) {
     return null
 }
 
-console.log(firstNonConsecutive([ 1, 2, 3, 4 ]))
+firstNonConsecutive([ 1, 2, 3, 4 ])
 
 // better solution 
 function firstNonConsecutive(arr) {
@@ -95,3 +95,37 @@ function bmi(weight, height) {
     
   }
 }
+
+const companies = [
+  {name: "Company One", category: "Finance", start: 1981, end: 2003},
+  {name: "Company Two", category: "Retail", start: 1992, end: 2008},
+  {name: "Company Three", category: "Auto", start: 1999, end: 2007},
+  {name: "Company Four", category: "Retail", start: 1989, end: 2010},
+  {name: "Company Five", category: "Technology", start: 2009, end: 2014},
+  {name: "Company Six", category: "Finance", start: 1987, end: 2010},
+  {name: "Company Seven", category: "Auto", start: 1986, end: 1996},
+  {name: "Company Eight", category: "Technology", start: 2011, end: 2016},
+  {name: "Company Nine", category: "Retail", start: 1981, end: 1989}
+];
+
+const ages = [33, 12, 20, 16, 5, 54, 21, 44, 61, 13, 15, 45, 25, 64, 32];
+
+// forEach
+companies.forEach(function(iter){ // sync callback function
+  return (iter["name"])
+})
+// Filter
+var x = ages.filter(function(ages){
+  return ages >40
+})
+const y = ages.filter(age => age > 40)
+var retails_companies = companies.filter(x => x.category == "Retail")
+var manipulated_name = companies.map(company => `The name of the company:${company.name}`)
+// sort
+var companies_sorted = companies.sort((x,y)=>{
+  return x.start - y.start
+})
+// reduce
+const age_sum = ages.reduce(function(total,age){
+  return total +age
+},0)
