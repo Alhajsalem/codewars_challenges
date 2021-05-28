@@ -113,7 +113,28 @@ function deleteNth(arr,n){
     y[x] =  y[x] ? y[x] + 1 : 1;
     return y[x] <= n
   })
-  console.log(result)
+  return result
 }
 
 deleteNth([20,37,20,21],1)
+
+// https://www.codewars.com/kata/585d7d5adb20cf33cb000235/train/javascript
+
+function findUniq(arr) {
+  uniqueArray = arr.filter(function(item, pos, self) {
+    return self.indexOf(item) == pos;
+  })
+  var count = 0;
+  for(var i = 0; i < arr.length; ++i){
+    if(arr[i] == uniqueArray[0])
+        count++;
+}
+ return count == 1 ? uniqueArray[0]: uniqueArray[1]
+}
+
+console.log(findUniq([ 0, 1, 1, 1, 1, 1, 1, 1 ]))
+
+function findUniq(arr) {
+  arr.sort((a,b)=>a-b);
+  return arr[0]==arr[1]?arr.pop():arr[0]
+}
