@@ -2,6 +2,7 @@
 
 // FUNDAMENTALS ARRAYS
 var assert = require('assert');
+const { start } = require('repl');
 
 function countSheeps(arrayOfSheep) {
     count = 0
@@ -87,3 +88,32 @@ function isValidWalk(walk) {
   return walk.length === 10 && north === south && east === west;
 }
 
+function findMissingLetter(array){
+  start_ = 'abcdefghijklmnopqrstuvwxyz'.indexOf(array[0].toLowerCase())
+  end_ = 'abcdefghijklmnopqrstuvwxyz'.indexOf(array[array.length-1].toLowerCase())
+  alphabet = 'abcdefghijklmnopqrstuvwxyz'.slice(start_,end_+1).split("")
+  str = ""
+  for(var i = 0; i<= array.length; i++){
+    if(alphabet[i] !== array[i].toLowerCase()){
+      str = alphabet[i]
+      break
+    }
+  }
+  if (array[0] == array[0] .toUpperCase()) return str.toUpperCase()
+  if (array[0] == array[0] .toLowerCase()) return str.toLowerCase()
+
+}
+
+findMissingLetter(['O','Q','R','S'])//, 'e'
+
+// https://www.codewars.com/kata/554ca54ffa7d91b236000023/train/javascript
+function deleteNth(arr,n){
+  var y = {}
+  result = arr.filter(x =>{
+    y[x] =  y[x] ? y[x] + 1 : 1;
+    return y[x] <= n
+  })
+  console.log(result)
+}
+
+deleteNth([20,37,20,21],1)
