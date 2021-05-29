@@ -23,7 +23,18 @@ def dirReduc(arr):
     dir3 = dir2.split()
     return dirReduc(dir3) if len(dir3) < len(arr) else dir3
 
+# https://www.codewars.com/kata/58223370aef9fc03fd000071/train/python
+def dashatize(n):
+    print(n)
+    if not isinstance(n, int): return 'None'
+    if n < 0: n = abs(n)
+    arr =[]
+    for i in str(n):
+        if int(i) % 2 == 0:
+            arr.append(i)
+        else:
+            arr.append("-{}-".format(i))
+    return ("".join(arr).replace("--","-").strip('-'))
 
 
-
-
+dashatize(974302)
