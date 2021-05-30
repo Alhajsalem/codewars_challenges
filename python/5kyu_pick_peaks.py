@@ -21,7 +21,10 @@ class FuncAdd:
     def __init__(self,func):
         self.func = func
         self.data.append(func)
-        setattr(FuncAdd,'data',self.data)
+        setattr(FuncAdd,'data',self.data)   
+
+    def  __getattr__(self,name_of_function):
+        return FuncAdd(name_of_function.__name__)
         
     def __call__(self,*a,**k):
         if self.func not in self.data:
@@ -44,8 +47,41 @@ def foo():
 def foo():
     return 'World'
 
-print(foo()) #--> ('Hello', 'World')
-
+foo() 
 
 FuncAdd.delete(foo) # Delete all foo() functions only
-print(foo())
+foo() # Should raise NameError
+
+
+class A:
+    def __init__(self):
+        print ("init")
+     
+    def __call__(self):
+         print ("call")
+
+x = A()
+x()
+
+
+class Count:
+    def __init__(self,mymin,mymax):
+        self.mymin=mymin
+        self.mymax=mymax 
+        #self.mycurrent1 = 1000   
+
+    def __getattr__(self, item):
+        print("eee{}".format(item))
+        self.__dict__[item]=0
+        return 0
+
+    def __getattribute__(self, item):
+        print(item)
+        if item.startswith('cur'):
+            raise AttributeError
+        return object.__getattribute__(self,item) 
+
+obj1 = Count(1,10)
+print(obj1.mymin)
+print(obj1.mymax)
+print(obj1.cur)
