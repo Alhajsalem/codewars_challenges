@@ -50,7 +50,7 @@ def foo():
 foo() 
 
 FuncAdd.delete(foo) # Delete all foo() functions only
-foo() # Should raise NameError
+#foo() # Should raise NameError
 
 
 class A:
@@ -85,3 +85,22 @@ obj1 = Count(1,10)
 print(obj1.mymin)
 print(obj1.mymax)
 print(obj1.cur)
+
+
+import json
+def jsonattr(filepath):
+    f = open(filepath, "r")
+    data = json.loads(f.read())
+    f.close()
+
+    def wrapper_fn(cls):
+        setattr(cls,'foo',data['foo'])
+        setattr(cls,'an_int',data['an_int'])  
+        setattr(cls,'this_kata_is_awesome',data['this_kata_is_awesome'])
+        return cls
+    return wrapper_fn 
+
+
+@jsonattr("/Users/Yousef/IdeaProjects/codewars/python/myClass.json")
+class MyClass:
+    pass
