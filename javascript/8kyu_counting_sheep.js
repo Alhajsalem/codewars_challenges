@@ -3,6 +3,7 @@
 // FUNDAMENTALS ARRAYS
 var assert = require('assert');
 const { start } = require('repl');
+const { get } = require('https');
 
 function countSheeps(arrayOfSheep) {
     count = 0
@@ -138,3 +139,103 @@ function findUniq(arr) {
   arr.sort((a,b)=>a-b);
   return arr[0]==arr[1]?arr.pop():arr[0]
 }
+
+function noSpace(x){
+  return(x.replace(/ /g,""))
+}
+
+noSpace('8 j 8   mBliB8g  imjB8B8  jl  B')
+
+
+var number=function(array){
+  result =[]
+  array.forEach((x,y)=>{
+    result.push(`${y+1}: ${x}`)
+  })
+  return(result)
+}
+
+number(["a", "b", "c"])//, ["1: a", "2: b", "3: c"]
+
+// Factory function 
+function Router(){
+  return {
+    "FirstName":"Yousef",
+    "LastName": "Alhajsalem", 
+    "MyLastCent" : function(){
+      console.log(`${this.FirstName}: ${this.LastName}`)
+      return ""
+
+    }
+  }
+}
+
+var x = new Router()
+console.log(x.MyLastCent())
+// Constuctor function
+function CirucleCalulation(radius){
+  this.radius = radius
+  this.draw = function(){
+    console.log(this.radius)
+  }
+
+}
+
+function SubstitutionCipher(abc1, abc2) {
+  this.abc1 = abc1
+  this.abc2 = abc2
+  
+  this.encode = function (str) {
+    result = []
+    for (var i = 0; i < str.length; i++) {
+      if (this.abc1.indexOf(str[i]) != -1) result.push(this.abc2[this.abc1.indexOf(str[i])])
+      else result.push(str[i]) 
+    }
+    return result.join("")
+  }
+  this.decode = function (str) {
+    result = []
+    for (var i = 0; i < str.length; i++) {
+      if (this.abc1.indexOf(str[i]) != -1) result.push(this.abc1[this.abc2.indexOf(str[i])])
+      else result.push(str[i]) 
+    }
+    return result.join("")  
+  }
+}
+
+var abc1 = "abcdefghijklmnopqrstuvwxyz";
+var abc2 = "etaoinshrdlucmfwypvbgkjqxz";
+   
+var sub = new SubstitutionCipher(abc1, abc2);
+sub.encode("a_bc&*83") // => "eta"
+
+
+
+function reverse(array) {
+  var left = null;
+  var right = null;
+  var length = array.length;
+  for (left = 0, right = length - 1; left < right; left += 1, right -= 1){
+    var temporary = array[left];
+      array[left] = array[right];
+      array[right] = temporary;
+  }
+  return array
+}
+
+reverse(['hello','world','how','are','you','?'])
+
+function getCommonDirectoryPath(pathes) {
+  let split = pathes.map(path => path.split('/')), arr = [], i = 0;
+   while (true) {
+     let t = split[0][i];
+     if (split.every(splitPath => splitPath[i] === t)) {
+       arr.push(t);
+       i += 1;
+     } else break;
+   }
+   return arr.length === 0 ? '' : arr.join('/') + '/';
+}
+
+getCommonDirectoryPath(['/web/images/image1.png', '/web/images/image2.png'])
+
