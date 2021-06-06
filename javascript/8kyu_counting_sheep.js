@@ -239,3 +239,37 @@ function getCommonDirectoryPath(pathes) {
 
 getCommonDirectoryPath(['/web/images/image1.png', '/web/images/image2.png'])
 
+
+var uniqueInOrder=function(iterable){
+  if (!Array.isArray(iterable)){
+    x = iterable.split("")
+  }
+  else x = iterable
+ 
+  for (var i = 0; i < x.length-1; i++){
+    if (x[i+1] == x[i]){
+      x.splice(i,1)
+      i-=1
+    } 
+  }
+  return x
+}
+
+uniqueInOrder('ABBCcAD')// == ['A', 'B', 'C', 'D', 'A', 'B']
+
+var uniqueInOrder=function(iterable){
+  return [...iterable].filter((a, i) => a !== iterable[i-1])
+}
+
+function fakeBin(x){
+   arr = [];
+   [...x].forEach(x=>{
+    if(x < 5){
+      arr.push(0)
+    }
+    else arr.push(1)
+  })
+  console.log(arr.join(""))
+}
+
+fakeBin('45385593107843568')
