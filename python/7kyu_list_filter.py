@@ -11,10 +11,9 @@ square_digits(9119)
 
 
 def song_decoder(song):
-    print(" ".join(song.split("WUB")).strip().replace("  "," ").replace("  "," "))
+    return (" ".join(song.split("WUB")).strip().replace("  "," ").replace("  "," "))
 
 song_decoder("WUBWWUBWUBWUBUWUBWUBBWUB")
-  # =>  WE ARE THE CHAMPIONS MY FRIEND
 
 
 def song_decoder(song):
@@ -23,3 +22,20 @@ def song_decoder(song):
 
     return ' '.join(x)
 song_decoder("WUBWWUBWUBWUBUWUBWUBBWUB")
+
+
+def corner_fill(array):
+    res = []
+    while len(array) > 1:
+        res = res + array.pop(0)
+        res = res + [row.pop(-1) for row in array]
+        res = res + [row.pop(-1) for row in array][::-1]
+        res = res + array.pop(0)[::-1]
+    return res if not array else res + array[0]
+
+x = [
+  [1, 2, 3],
+  [4, 5, 6],
+  [7, 8, 9]
+]
+print(corner_fill(x))
