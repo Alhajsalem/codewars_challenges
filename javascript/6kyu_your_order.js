@@ -43,7 +43,12 @@ function order(words){
 
 
 String.prototype.camelCase=function(){
-    return "Hallo"
+    x =  this.split(" ")
+    arr = []
+    for (var i = 0; i < x.length; i++) {
+      arr.push(x[i].charAt(0).toUpperCase() + x[i].slice(1));
+    }
+    return(arr.join(""))
   }
 
 console.log("test case".camelCase())
