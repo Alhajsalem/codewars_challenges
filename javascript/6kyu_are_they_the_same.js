@@ -22,3 +22,23 @@ function comp(array1, array2) {
     array1.sort((a, b) => a - b); array2.sort((a, b) => a - b);
     return array1.map(v => v * v).every((v, i) => v == array2[i]);
   }
+
+function kebabize(str) {
+// 'my-camel-has-humps'
+    console.log(str)
+    str =str.replace(/[0-9]/g, '');
+    result = [];
+    [...str].forEach(x=>{
+        if (x === x.toUpperCase()){
+            result.push("-"+ x.toLowerCase())
+        }
+        else{
+            result.push(x)
+        }
+    })
+    console.log(result.join("").replace(/^\-+|\-+$/g, ''))
+    return result.join("").replace(/^\-+|\-+$/g, '')
+}
+// my-camel-cased-string
+// Expected: 'zabt', instead got: '-zabt'
+kebabize('Zabt2')

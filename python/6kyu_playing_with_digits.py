@@ -20,3 +20,24 @@ def encrypt_this(text):
 
 
 print(encrypt_this("A wise old owl lived in an oak"))
+
+def sort_array(source_array):
+   print(list(filter(lambda x: x < 20, sorted(source_array, key = lambda x: len(str(x))))))
+
+
+   odd = sorted(list(filter(lambda x: x % 2, source_array)))
+   result = []
+   i = 0
+   for s in source_array:
+       if s % 2 != 0:
+           result.append(odd[i])
+           i = i +1
+
+       else:
+           result.append(s)
+   return result
+print(sort_array([523444, 344, 2344, 844, 14, 4]))#, [1, 3, 2, 8, 5, 4])
+
+
+def fn(x):
+    return len(x)

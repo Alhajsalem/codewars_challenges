@@ -16,3 +16,26 @@ def namelist_1(names):
     return ', '.join([n['name'] for n in names[:-1]]) + ' & ' + names[-1]['name']
 
 assert namelist_1([{'name': 'Bart'},{'name': 'Lisa'},{'name': 'Maggie'},{'name': 'Homer'},{'name': 'Marge'}]) == 'Bart, Lisa, Maggie, Homer & Marge'
+
+
+def add_arrays(array1, array2):
+    if len(array1) != len(array2): raise Exception("something went wrong")
+    return ([array1[i] + array2[i] for i in range(len(array1))])
+
+
+# better solution 
+from operator import add
+def add_arrays(xs, ys):
+    if len(xs) != len(ys):
+        raise ValueError
+    return list(map(add, xs, ys))
+
+
+def two_sum(numbers, target):
+    for i in range(len(numbers)):
+        for j in range(len(numbers)):
+            if (numbers[i]+ numbers[j]) == target and i != j:
+                return [i,j]
+
+
+print(two_sum([2,2,3], 4)) #  (0, 2)
