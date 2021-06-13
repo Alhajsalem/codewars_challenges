@@ -40,3 +40,10 @@ function order(words){
   });
 
   console.log(items)
+
+
+String.prototype.camelCase=function(){
+    return "Hallo"
+  }
+
+console.log("test case".camelCase())
