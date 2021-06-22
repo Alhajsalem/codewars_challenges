@@ -35,10 +35,31 @@ def validate(n):
 
 validate(1230)
 
-i = 2
-while i < 98:
-    print(i)
-    i += 1
+def clean_string(s):
+    if s.find("#") == -1: return s
+    s = list(s)
+    i = 0
+    while i < len(s):
+        if s[i] == "#" and i == 0:
+            s.pop(i)
+            i = i - 1
+        elif s[i] == "#" and i != 0:
+            s.pop(i)
+            s.pop(i-1)
+            i = i - 2
+        i+=1
+    return("".join(s))
 
-    if i == 56:
-        
+
+print(clean_string("22###(")) # '' should equal '7&'
+
+def clean_string(s):
+    l = []
+    for x in s:
+        if x != "#": 
+            l.append(x)
+        elif len(l) > 0:
+            l.pop()
+    return ''.join(l)
+    
+print(clean_string_1("22###("))
