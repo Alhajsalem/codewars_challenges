@@ -59,3 +59,25 @@ String.prototype.camelCase=function(){
    return word.charAt(0).toUpperCase() + word.slice(1);
  }).join('');
 }
+
+multiplicationTable = function(size) {
+  arr = []
+  for (var i = 1; i< size+1; i++){
+    x = []
+    for (var j= 1; j < size +1; j++){
+        x.push(j*i)
+    }
+    arr.push(x)
+  }
+  return arr
+}
+console.log(multiplicationTable(3))
+  
+
+
+function playPass(s, n) {
+  alphabet = 'abcdefghijklmnopqrstuvwxyz'
+  console.log(alphabet)
+}
+
+playPass("I LOVE YOU!!!", 1)

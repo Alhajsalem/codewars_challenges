@@ -90,3 +90,7 @@ def duplicate_encode(word):
            result += "("
     return result
 duplicate_encode("(( @")#,"()()()"
+
+g = lambda a, b : a *b 
+
+print(g(2,2))
