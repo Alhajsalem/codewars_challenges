@@ -45,3 +45,27 @@ ball1 = Ball()
 ball2 = Ball("super")
 print(ball1.ball_type) 
 ball2.ball_type 
+
+class FileNameExtractor:
+    def extract_file_name(f):
+        return f[f.find("_")+1:f.rfind(".")]
+
+
+FileNameExtractor.extract_file_name("1231231223123131_FILE_NAME.EXTENSION.OTHEREXTENSION")#,"FILE_NAME.EXTENSION")
+
+
+def average_string(s):
+    numbers = {"zero":0,"one":1,"two":2, "three":3, "four":4, "five":5, "six":6, "seven":7,
+    "eight":8, "nine":9}
+    str_array = s.split(" ")
+    for item in str_array:
+        if item not in numbers:
+            return "n/a"
+    result = []
+    len_of_array = len(str_array)
+    for i in set(s.split(" ")):
+        result.append(numbers[i]*s.count(i))
+    for a_key in numbers.keys():
+        if (numbers[a_key] == int(sum(result)/len_of_array)):
+            return a_key
+print(average_string("pippi"))#, "four")
