@@ -2,3 +2,10 @@
 num1=$1
 ans=$((num1 * 2))
 echo $ans
+
+
+#!/bin/bash
+greet() {
+    echo "hello world!";
+}
+greet 
