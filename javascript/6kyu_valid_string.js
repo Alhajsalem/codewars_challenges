@@ -26,9 +26,6 @@ function isPrime(n) {
     }
     return true
    }
-    
-
-
 function getMiddle(s){
   str_len = s.length;
   if (str_len % 2 !== 0){
@@ -96,8 +93,39 @@ function validPhoneNumber(phoneNumber){
 
 function phonenumber(inputtxt) {
   var regex = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;
-   console.log(regex.test(inputtxt))
+   return regex.test(inputtxt)
 
 }
 
 console.log(phonenumber("(1111)555 2345"))
+
+var reverseVowels = function(s) {
+  const LEN = s.length;
+  const str = [...s];
+  const vowels = ['a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U'];
+  const rev = [];
+  for (let i = 0; i < LEN; i++) {
+    if (vowels.includes(s[i])) { rev.push(s[i]); }
+  }
+  for (let i = 0; i < LEN; i++) {
+    if (vowels.includes(str[i])) { str[i] = rev.pop(); }
+  }
+  return str.join('');
+};
+
+
+reverseVowels("Hello!")//, "Holle!"
+
+function powersOfTwo(n){
+  result = []
+  for(var i =0;i<=n; i++){
+    result.push(Math.pow(2,i))
+     
+  }
+  var result_e = [...Array(n+1)].map((index,item)=>{
+    return Math.pow(2,item)
+  })
+  console.log(result_e)
+  return result
+}
+console.log(powersOfTwo(0))//, [1]
