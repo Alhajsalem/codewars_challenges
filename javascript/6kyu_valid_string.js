@@ -129,3 +129,24 @@ function powersOfTwo(n){
   return result
 }
 console.log(powersOfTwo(0))//, [1]
+
+
+function largestPairSum(numbers){
+
+  array_result = []
+  for (var i = 0; i < numbers.length; i++) { 
+    for (var j = 0; j < numbers.length; j++){
+      if (j !== i ){
+        array_result.push(numbers[i]+numbers[j])
+      }
+    }
+    }
+    return (Math.max(...array_result));
+}
+
+largestPairSum([10,14,2,23,19])//, 42
+
+function largestPairSum(numbers){
+  numbers.sort(function(a, b){ return b - a });
+  return numbers[0] + numbers[1];
+}
