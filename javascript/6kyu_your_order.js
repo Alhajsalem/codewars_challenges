@@ -81,3 +81,10 @@ function playPass(s, n) {
 }
 
 playPass("I LOVE YOU!!!", 1)
+
+
+function generateColor() {
+  return `#${(0 | Math.random() * 0xEEEEEE + 0x111111).toString(16)}`
+}
+
+console.log(generateColor())
