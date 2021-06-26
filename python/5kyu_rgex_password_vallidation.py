@@ -35,7 +35,7 @@ Quantifiers:
 [a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+
 """
 
-matches = re.findall(r'(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])[A-Za-z0-9]{6,}', sentence)
+#matches = re.findall(r'(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])[A-Za-z0-9]{6,}', sentence)
 
 #regex=r'^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[a-zA-Z0-9]{6,}$'
 
@@ -51,3 +51,29 @@ regex = compile("""
 {6,}           # at least 6 characters long
 $              # end word
 """, VERBOSE)
+import string
+def pig_it(text):
+    array = []
+    text_array = text.split(" ")
+    for world in text_array:
+        if world in string.punctuation:
+            array.append(world)
+        else:
+            array.append(world[1:]+world[0]+"ay")
+
+    return " ".join(array)
+
+
+
+pig_it('Hello world !')#,'igPay atinlay siay oolcay'
+
+def row_sum_odd_numbers(n):
+    array = []
+    start= n*(n-1)+1
+    ende = start + (2*n-1)
+    for i in range(start,ende,2):
+        array.append(i)   
+    return sum(array)
+
+
+row_sum_odd_numbers(2)
