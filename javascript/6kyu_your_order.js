@@ -88,3 +88,9 @@ function generateColor() {
 }
 
 console.log(generateColor())
+
+function isIsogram(str){
+  return [...str.toLowerCase()].length == [...new Set([...str.toLowerCase()])].length
+}
+
+console.log(isIsogram("Dermatoglyphics"))// == true
