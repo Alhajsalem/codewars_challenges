@@ -94,3 +94,51 @@ function isIsogram(str){
 }
 
 console.log(isIsogram("Dermatoglyphics"))// == true
+
+
+function dup(s) {
+  result_final = []
+  s.forEach(x=>{
+    let last = "";
+    let result = "";
+    for(let i = 0; i < x.length; i++){
+      let char = x.charAt(i);
+      if(char !== last){
+        result += char;
+        last = char;
+      }
+    }
+    result_final.push(result)
+  })
+ return (result_final)
+}
+
+//dup()
+dup(["ccooddddddewwwaaaaarrrrsssss","piccaninny","hubbubbubboo"])//,['codewars','picaniny','hubububo']);
+
+const dup = (s) =>
+  s.map((str) =>
+    str
+      .split('')
+      .filter((c, i) => c !== str[i - 1])
+      .join('')
+  );
+
+  function dblLinear(n) {
+    let t = [1]
+    f = 0
+    z = 0 
+    for (let i = 0; i < n; i++) {
+        let nextX = 2 * t[z] + 1, nextY = 3 * t[f] + 1
+        if (nextX <= nextY) {
+            u.push(nextX)
+            z++
+            if (nextX == nextY)
+                f++
+        } else {
+            t.push(nextY)
+            f++
+        }
+    }
+    return t[n]
+}
