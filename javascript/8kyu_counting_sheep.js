@@ -273,3 +273,9 @@ function fakeBin(x){
 }
 
 fakeBin('45385593107843568')
+
+function findShort(s){
+  return Math.min(...s.split(" ").map(element => element.length))
+}
+
+findShort("bitcoin take over the world maybe who knows perhaps")//, 3
