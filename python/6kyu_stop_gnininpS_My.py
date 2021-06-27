@@ -29,3 +29,11 @@ from itertools import combinations
 
 def pos_average(s):
     return mean(a == b for combo in combinations(s.split(', '), 2) for a, b in zip(*combo)) * 100.
+
+
+
+from calendar import weekday, day_name
+def most_frequent_days(year):
+    return [ day_name[day] for day in sorted( {weekday(year, 1, 1), weekday(year, 12, 31)} ) ]
+print(most_frequent_days(1984))
+
