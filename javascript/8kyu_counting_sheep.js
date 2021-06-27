@@ -293,3 +293,8 @@ function isAValidMessage(message){
   return true
 }
 console.log(isAValidMessage(""))
+
+function invert(array) {
+  array.forEach(x =>{-x})
+}
+invert([1,2,3,4,5])//, [-1,-2,-3,-4,-5])
