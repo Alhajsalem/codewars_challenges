@@ -37,3 +37,13 @@ def most_frequent_days(year):
     return [ day_name[day] for day in sorted( {weekday(year, 1, 1), weekday(year, 12, 31)} ) ]
 print(most_frequent_days(1984))
 
+def valid_parentheses(string):
+    count = 0
+    for i in string:
+        if i == "(":
+            count += 1
+        elif i == ")":
+            count -= 1
+        if count < 0:
+            return False
+    return count == 0
