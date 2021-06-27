@@ -279,3 +279,17 @@ function findShort(s){
 }
 
 findShort("bitcoin take over the world maybe who knows perhaps")//, 3
+
+
+function isAValidMessage(message){
+  if (message === "") return true
+  array_digits = message.match(/\d+/g)
+  arrary_split= message.split(/\d+/g).slice(1)
+  for (let i = 0; i< array_digits.length; i++){
+    if (array_digits[i] != arrary_split[i].length){
+      return false
+    }
+  }
+  return true
+}
+console.log(isAValidMessage(""))
