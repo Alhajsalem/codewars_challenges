@@ -1,6 +1,6 @@
 #!/bin/bash
 local_array=("$@")
-#echo ${local_array[@]}
+echo ${local_array[@]}
 if [ `expr ${local_array[0]} % ${local_array[1]}` -eq 0 ] && [ `expr ${local_array[0]} % ${local_array[2]}` -eq 0 ]
 then
     echo "true"
@@ -33,4 +33,11 @@ accum () {
     echo $max
 
 }
+
+
+
+accum () {
+    echo `python -c "$aux4657" "$1" "$2"`
+}
+
 accum hoqq,bbllkw,oox,ejjuyyy,plmiis,xxxzgpsssa,xxwwkktt,znnnnfqknaz,qqquuhii,dvvvwz cccooommaaqqoxii,gggqaffhhh,tttoowwwmmww
