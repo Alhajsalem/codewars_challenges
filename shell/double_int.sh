@@ -19,3 +19,16 @@ for ((i=start;i<=end;i=i+2)); do
     sum=$((sum+i))
 done
 echo $sum
+
+
+#!/bin/bash
+
+countToTwenty() {
+ for ((i=1;i<=20;i=i+1)); do
+    echo Count: $i
+done
+}
+
+countToTwenty
+
+echo "Count: "{1..20}
