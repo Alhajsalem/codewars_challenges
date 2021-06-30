@@ -66,7 +66,6 @@ def bar():
 
 class UnexpectedTypeException(Exception):
     pass
-
 def expected_type(return_types):
     def wrapper_1(fn):
         def wrapper_2(*args):
