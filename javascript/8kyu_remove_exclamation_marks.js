@@ -48,3 +48,20 @@ function count (string) {
   
   return result;
 }
+
+function shiftedDiff(first,second){
+  if (first == second) return 0
+  var result = ""
+  counter = 0
+  for (var i=0; i< first.length; i++){
+   // const rot = s => s.substring(1) + s.charAt(0);
+   result = first.slice(-1) + first.substring(0, first.length-1);
+   first = result
+   counter+=1
+   if (result == second){
+    return counter
+   }
+  }
+  return -1
+}
+console.log(shiftedDiff(" "," "),)//, -1)
