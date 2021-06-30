@@ -129,3 +129,17 @@ var companies_sorted = companies.sort((x,y)=>{
 const age_sum = ages.reduce(function(total,age){
   return total +age
 },0)
+
+
+function bingo(ticket, win){
+  counter = 0;
+  ticket.forEach(x=>{
+    for (let i = 0; i < x[0].length; i++){
+      if ((x[0][i]).charCodeAt() == x[1]){
+        counter+=1
+      }
+    }
+  })
+  return (counter < win) ? "Loser!" : "Winner!"
+}
+console.log(bingo([ [ 'WAQETSVS', 83 ],[ 'PYCSGX', 70 ],[ 'NACH', 81 ],[ 'ZAE', 90 ],[ 'AO', 82 ],[ 'IZKQXW', 72 ] ], 3))
