@@ -150,3 +150,19 @@ function largestPairSum(numbers){
   numbers.sort(function(a, b){ return b - a });
   return numbers[0] + numbers[1];
 }
+
+
+function sumPairs(ints, s) {
+  for(let i=0; i< ints.length;i++){
+    for (let j=0; j< ints.length;j++){
+      if (i !== j & j >i){
+        if (ints[i]+ints[j] == s){
+          return [ints[i],ints[j]]
+        }
+      }
+    }
+  }
+  return undefined
+}
+console.log(sumPairs([10, 5, 2, 3, 7, 5], 10))//, [3, 7]
+
