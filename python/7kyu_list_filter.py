@@ -38,7 +38,7 @@ x = [
   [4, 5, 6],
   [7, 8, 9]
 ]
-print(corner_fill(x))
+corner_fill(x)
 
 import time
 def timer(limit):
@@ -61,5 +61,25 @@ def foo():
 def bar():
     sleep(1.1)
 
-print(foo())#, True)
-print(bar())#, False)
+#print(foo())#, True)
+#print(bar())#, False)
+
+class UnexpectedTypeException(Exception):
+    pass
+
+def expected_type(return_types):
+    def wrapper_1(fn):
+        def wrapper_2(*args):
+            if isinstance(fn(*args), return_types):
+                return fn(*args)
+            else:
+                raise UnexpectedTypeException("the type not matching")
+        return wrapper_2
+    return wrapper_1
+
+@expected_type((str,))
+def return_something(something):
+    return something
+
+
+return_something('The quick brown fox jumps over the lazy dog.')
