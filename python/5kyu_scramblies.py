@@ -22,3 +22,20 @@ def scramble(s1,s2):
     # Using set subtraction, we know that if anything is left over,
     # something exists in s2 that doesn't exist in s1
     return len(Counter(s2)- Counter(s1)) == 0
+
+import re
+def string_transformer(s):
+    result_array = reversed(re.split(r'(\s+)', s))
+    result = []
+    for i in result_array:
+        for letter in i:
+            if letter.capitalize() == letter:
+                result.append(letter.lower())
+            else:
+                result.append(letter.capitalize())
+    return ("".join(result))
+
+string_transformer("You Know When  THAT  Hotline Bling")#, "bLING hOTLINE  that  wHEN kNOW yOU")
+
+def string_transformer(s):
+    return ' '.join(s.swapcase().split(' ')[::-1])
