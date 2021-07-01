@@ -33,7 +33,7 @@ def string_transformer(s):
                 result.append(letter.lower())
             else:
                 result.append(letter.capitalize())
-    return ("".join(result))
+    return "".join(result)
 
 string_transformer("You Know When  THAT  Hotline Bling")#, "bLING hOTLINE  that  wHEN kNOW yOU")
 
