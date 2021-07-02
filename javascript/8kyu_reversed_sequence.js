@@ -11,13 +11,13 @@ const reverseSeq = n => {
 
 
  // better solution 
-const reverseSeq = n => {
+const reverseSeq_1 = n => {
 let arr = [];
     for (let i=n; i>0; i--) {
     arr.push(i);
     } return arr;
 };
-reverseSeq(5)//, [5, 4, 3, 2, 1]
+reverseSeq_1(5)//, [5, 4, 3, 2, 1]
 
 const flip = (d, a)=>{
   if (d === "R") return a.sort((x,y) => x-y);
@@ -40,3 +40,5 @@ function smallEnough(a, limit){
 function smallEnough_1(a, limit){
   return a.every(x => x <= limit);
 }
+
+
