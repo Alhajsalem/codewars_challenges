@@ -164,5 +164,28 @@ function sumPairs(ints, s) {
   }
   return undefined
 }
-console.log(sumPairs([10, 5, 2, 3, 7, 5], 10))//, [3, 7]
+sumPairs([10, 5, 2, 3, 7, 5], 10)//, [3, 7]
+
+
+function moreZeros(s){
+  result = [];
+  [...s].forEach(letter=>{
+    binary = letter.charCodeAt(0).toString(2)
+    if ((binary.match(/0/g))!== null){
+      x = (binary.match(/0/g)).length
+    }
+    if ((binary.match(/1/g))!== null){
+      y = (binary.match(/1/g)).length
+    }
+    if (x > y){
+      result.push(letter)
+    }
+  })
+  return [...(new Set(result))]
+}
+
+console.log(moreZeros('C|3FV?) uSUvA^5G1*biCO!>?'))//,['a','b','d']
+
+
+
 
