@@ -53,7 +53,7 @@ def clean_string(s):
 
 print(clean_string("22###(")) # '' should equal '7&'
 
-def clean_string(s):
+def clean_string_1(s):
     l = []
     for x in s:
         if x != "#": 
@@ -63,3 +63,23 @@ def clean_string(s):
     return ''.join(l)
     
 print(clean_string_1("22###("))
+
+import re
+def sum_arrays(array1,array2):
+    if len(array1) == 0: return array2
+    if len(array2) == 0: return array1
+    x = int("".join([str(i) for i in array1]))+int("".join([str(i) for i in array2]))
+    if str(x).find("-") == -1:
+        return [int(i) for i in str(x)]
+    else:
+        y = [int(item)*-1 if index == 0 else int(item) for index,item in enumerate(str(x)[1:])]
+        if y[0] == 0:
+            return y[1:0]
+        else:
+            return y
+
+   
+    
+
+#sum_arrays([1],[5,7,6])#,[5,7,7])
+print(sum_arrays([0,4],[]))#,[2])
