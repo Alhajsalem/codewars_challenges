@@ -77,9 +77,22 @@ def sum_arrays(array1,array2):
             return y[1:0]
         else:
             return y
-
-   
-    
-
-#sum_arrays([1],[5,7,6])#,[5,7,7])
 print(sum_arrays([0,4],[]))#,[2])
+
+def count_adjacent_pairs(st):
+    result = [None]
+    array_str= st.lower().split(" ")
+    for i in range(len(array_str)-1):
+        if array_str[i] == array_str[i+1] and array_str[i+1] != result[-1]:
+            result.append(array_str[i+1])
+    return len(result)-1
+
+count_adjacent_pairs('HEx hEX zip zip zIp dIcT repR RePR Ord Ord orD iteR stAticmeThod loCALs lOcALS LOcaLs lOCaLs issuBClaSs iSSUbcLasS isSubClASs iSsUbcLass ZIp ZIp')#, 1)
+
+
+#['hex', 'zip', 'repr', 'ord', 'locals', 'issubclass']
+['hex', 'zip', 'repr', 'ord', 'locals', 'issubclass', 'zip']
+
+from itertools import groupby
+def count_adjacent_pairs(st): 
+    return len([name for name,group in groupby(st.lower().split(' ')) if len(list(group))>=2])
