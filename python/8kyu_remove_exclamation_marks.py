@@ -96,3 +96,5 @@ count_adjacent_pairs('HEx hEX zip zip zIp dIcT repR RePR Ord Ord orD iteR stAtic
 from itertools import groupby
 def count_adjacent_pairs(st): 
     return len([name for name,group in groupby(st.lower().split(' ')) if len(list(group))>=2])
+
+count_adjacent_pairs('HEx hEX zip zip zIp dIcT repR RePR Ord Ord orD iteR stAticmeThod loCALs lOcALS LOcaLs lOCaLs issuBClaSs iSSUbcLasS isSubClASs iSsUbcLass ZIp ZIp')#, 1)
