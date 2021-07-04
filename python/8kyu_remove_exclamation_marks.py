@@ -98,3 +98,20 @@ def count_adjacent_pairs(st):
     return len([name for name,group in groupby(st.lower().split(' ')) if len(list(group))>=2])
 
 count_adjacent_pairs('HEx hEX zip zip zIp dIcT repR RePR Ord Ord orD iteR stAticmeThod loCALs lOcALS LOcaLs lOCaLs issuBClaSs iSSUbcLasS isSubClASs iSsUbcLass ZIp ZIp')#, 1)
+
+
+
+# https://www.codewars.com/kata/5d774cfde98179002a7cb3c8/train/python
+def make_class(*args):
+    def wrapper_1 (*values):
+        class Myclass:
+            def __init__(self):
+                for i in range(len(args)):
+                    setattr(self, args[i], values[i]) 
+        return Myclass()
+    return wrapper_1
+
+
+Animel = make_class("name", "species", "age", "health", "weight", "color")
+dog2 = Animel("Bob", "Dog", 5, "good", "50lb", "brown")
+
