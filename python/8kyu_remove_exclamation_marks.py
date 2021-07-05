@@ -115,3 +115,13 @@ def make_class(*args):
 Animel = make_class("name", "species", "age", "health", "weight", "color")
 dog2 = Animel("Bob", "Dog", 5, "good", "50lb", "brown")
 
+# https://www.codewars.com/kata/556deca17c58da83c00002db/train/python
+
+def tribonacci(signature, n):
+    count = 0
+    while len(signature) < n:
+        signature.append(sum(signature[count:]))
+        count+=1
+    return signature[:n]
+
+tribonacci([1, 1, 1], 1)
