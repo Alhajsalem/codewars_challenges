@@ -125,3 +125,13 @@ def tribonacci(signature, n):
     return signature[:n]
 
 tribonacci([1, 1, 1], 1)
+
+#https://www.codewars.com/kata/5511b2f550906349a70004e1
+
+import numpy as np 
+def last_digit(n1, n2):
+    print(np.power(n1,n2))
+    
+    #print(pow(n1, n2))
+
+last_digit(2 ** 200, 2 ** 300)#, 9)

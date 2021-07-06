@@ -42,3 +42,23 @@ function smallEnough_1(a, limit){
 }
 
 
+function countBy(x, n) {
+  var z = [];
+  for(var i = x; i <= x*n; i+=x){
+    z.push(i)
+  }
+  return z;
+}
+console.log(countBy(2,5))
+
+function getCount(str) {
+  var vowelsCount = 0;
+  str_vowels = "aeiou";
+  [...str].forEach(element => {
+    if (str_vowels.includes(element)){
+      vowelsCount+=1
+    }
+  });
+  return vowelsCount;
+}
+console.log(getCount("abracadabra"))
