@@ -62,5 +62,21 @@ import re
 def is_valid_coordinates(coordinates):
     return bool(re.match("-?(\d|[1-8]\d|90)\.?\d*, -?(\d|[1-9]\d|1[0-7]\d|180)\.?\d*$", coordinates))
 
+import math
+def is_square(n):
+    if n < 0: return False
+    return int(math.pow(n,1/2)) * int(math.pow(n,1/2)) == n
+is_square(26)
 
-]
+def xo(s):
+    return s.lower().count("o") == s.lower().count("x")
+xo("ooxx")
+
+def get_sum(a,b):
+    if a == b : return a
+    if b < a:
+        return sum([i for i in range(b,a+1)])
+    if b > a:
+        return sum([i for i in range(a,b+1)])
+
+get_sum(0, -1) #== 2 
