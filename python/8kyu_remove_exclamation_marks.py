@@ -135,3 +135,46 @@ def last_digit(n1, n2):
     #print(pow(n1, n2))
 
 last_digit(2 ** 200, 2 ** 300)#, 9)
+
+
+def create_generator():
+    mylist = range(5000)
+    for i in mylist:
+        yield i
+
+
+def find_nb(m):
+    counter = 0
+    result = 0
+    while result <= m: 
+        result+= (counter) ** 3
+        if result == m:
+            return counter
+        counter+=1
+    return -1
+print(find_nb(1071225)) #--> 45
+
+
+def anagrams(word, words):
+    result = []
+    for word_ in words:
+        if "".join(sorted(word)) == "".join(sorted(word_)):
+            result.append(word_)
+    print(result)
+
+
+# better solution
+def anagrams_1(word, words):
+    return [w for w in words if sorted(word)==sorted(w)]
+
+
+def increment_string(strng):
+    n = strng.rstrip('0123456789')
+    x = strng[len(n):]
+    if len(x) == 0:
+        return strng + '1'
+    result = 1 + int(x)
+    result = str(result).zfill(len(x))
+    return n + result
+
+print(increment_string("<7016'u_~2469LX7<9000000401760459"))#, "foobar002")
