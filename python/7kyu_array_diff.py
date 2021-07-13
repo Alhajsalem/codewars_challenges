@@ -107,3 +107,26 @@ def get_pins(observed):
     return ([''.join(map(str,num)) for num in [list(w) for w in itertools.product(*search)]])
   
 
+
+def friend(x):
+    return list(filter(lambda name: len(name) == 4, x))
+
+
+friend(["Ryan", "Kieran", "Mark",])#, ["Ryan", "Mark"]
+
+
+def remove_smallest(numbers):
+    new_list = numbers.copy()
+    if len(new_list) == 0: return []
+    del new_list[new_list.index(min(new_list))]
+    return new_list
+
+
+print(remove_smallest([1, 2, 3, 4, 5]))#, [2, 3, 4, 5],
+
+def find_next_square(sq):
+    x = sq**0.5    
+    return -1 if x % 1 else (x+1)**2
+
+
+print(find_next_square(625))#, 144, "Wrong output for 121")
