@@ -63,11 +63,20 @@ def mix(s1, s2):
 
 
 mix("Sadus:cpms>orqn3zecwGvnznSgacs","MynwdKizfd$lvse+gnbaGydxyXzayp")
-# 2:yyyy/1:ccc/1:nnn/1:sss/2:ddd/=:aa/=:zz')
-
 def sum_array(arr):
     if len(arr) < 3 or arr ==None: return 0
     return sum(sorted(arr)[1:-1])
+sum_array([6, 2, 1, 8, 10])
 
 
-sum_array([6, 2, 1, 8, 10])#, 16
+EXC={'1':'1','6':'9','9':'6','8':'8','0':'0'}
+
+def solve(a, b):
+    return sum(1 if ud(n) else 0 for n in range(a,b))
+        
+        
+def ud(n):
+    try: return n==int(''.join(EXC[i] for i in str(n)[::-1]))
+    except: return False
+
+print(solve(10,100))#,4)
