@@ -14,3 +14,11 @@ make_sentences = lambda c:re.sub(r'(?<=\w) (?=\W)|[.\s]+$','',' '.join(c))+'.'
 # better solution
 def make_sentences(parts):
     return ' '.join(parts).replace(' ,', ',').strip(' .') + '.'
+
+
+from collections import Counter
+def longest(a1, a2):
+    print(Counter(a2)-Counter(a1))
+
+
+longest("aretheyhere", "yestheyarehere")#, "aehrsty")
