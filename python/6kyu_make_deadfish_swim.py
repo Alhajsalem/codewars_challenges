@@ -34,6 +34,9 @@ def up_array(arr):
         return None
     else:
         return [int(y) for y in str(int("".join([str(x) for x in arr])) + 1)]
-
-
 up_array([])#, [2,4,0]
+
+def nbr_of_laps(x, y):
+    print(5*3,3*5)
+
+nbr_of_laps(5, 3)#, (3,5)
