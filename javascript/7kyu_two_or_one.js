@@ -20,23 +20,3 @@ function toWeirdCase(string){
 }
 
 toWeirdCase( "Weird string case" );//=> returns "WeIrD StRiNg CaSe"
-
-
-  //   if (index % 2 == 0){
-  //           result.push(ch.toUpperCase())
-  //         }
-  //         else{
-  //           result.push(ch.toLowerCase())
-  //         }});
-  //  console.log(result)
-
-//   [...string].forEach((ch,index) =>{
-//     if (index % 2 == 0){
-//       result.push(ch.toUpperCase())
-//     }
-//     else{
-//       result.push(ch.toLowerCase())
-//     }
-//   })
-//   console.log(result.join(""))
-// }
