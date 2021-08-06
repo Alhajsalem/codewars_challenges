@@ -130,3 +130,10 @@ def find_next_square(sq):
 
 
 print(find_next_square(625))#, 144, "Wrong output for 121")
+
+def group_check(s):
+    while "{}" in s or "()" in s or "[]" in s:
+       s = s.replace("{}","").replace("()","").replace("[]","")
+    return not s
+
+print(group_check("({"))#, True)
