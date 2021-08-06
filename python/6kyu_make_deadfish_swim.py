@@ -37,6 +37,24 @@ def up_array(arr):
 up_array([])#, [2,4,0]
 
 def nbr_of_laps(x, y):
-    print(5*3,3*5)
+    for i in range(1,1000):
+        for j in range(1,1000):
+            if(x *i  == y*j):
+                if (x > y):
+                    return tuple(sorted((i,j)))
+                else:
+                    return (i,j)
 
-nbr_of_laps(5, 3)#, (3,5)
+def nbr_of_laps(x, y):
+    a, b = x, y
+    remain = a % b
+    while remain > 0:
+        a, b = b, remain
+        remain = a % b
+
+    gcd = b
+    lcm = x * y / gcd
+
+    return lcm / x, lcm / y
+print(nbr_of_laps(4688, 5688))#, (1,1))
+
