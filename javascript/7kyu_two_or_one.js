@@ -55,3 +55,17 @@ var breakChocolate = function(n, m) {
 }
 
 removeUrlAnchor('www.codewars.com#about')//, 'www.codewars.com')
+
+function generateRange(min, max, step){
+  result = [] 
+  for (min; min < max+1; min += step){
+    result.push(min)
+  }
+  return result
+}
+console.log(generateRange(2, 10, 2))//, [2,4,6,8,10]
+
+function multipleOfIndex(array) {
+  return array.filter((number,index)=>number%index==0)
+}
+console.log(multipleOfIndex([22, -6, 32, 82, 9, 25]))//, [-6, 32, 25]);
