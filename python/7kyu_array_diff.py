@@ -137,3 +137,8 @@ def group_check(s):
     return not s
 
 print(group_check("({"))#, True)
+
+
+def multiple_of_index(arr):
+    return [arr[i] for i in range(1,len(arr)) if (arr[i] % i) == 0]
+multiple_of_index([22, -6, 32, 82, 9, 25])#, [-6, 32, 25])
