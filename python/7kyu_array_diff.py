@@ -192,5 +192,11 @@ print(mount_moose.how_many(['John', 'Fred', 'BOb', 'carl', 'RyAn']))# => 5
 print(mount_moose.how_many(['JoHn', 'Luke', 'AmAndA']))#; => 2
 print(mount_moose.how_many(['Amanda', 'CalEb', 'CarL', 'Furgus']))#, 2))
 
+class Person:
+    def __init__(self,name):
+        self.name = name
+    def greet(slef,name):
+        return f"Hello {name_}, my name is {self.name}"
+
 
 
