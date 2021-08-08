@@ -69,3 +69,24 @@ function multipleOfIndex(array) {
   return array.filter((number,index)=>number%index==0)
 }
 console.log(multipleOfIndex([22, -6, 32, 82, 9, 25]))//, [-6, 32, 25]);
+
+function Song(title, artist){
+  this.title = title
+  this.artist = artist
+  this.result = []
+  this.counter = 0
+  this.howMany = function(names){
+    names.map(name => name.toLowerCase()).forEach(name => { 
+      if (!this.result.includes(name)){
+        this.result.push(name)
+      }   
+    });
+    re = this.result.length - this.counter
+    this.counter = this.result.length
+    return re
+  }
+}
+
+const mountMoose = new Song('Mount Moose', 'The Snazzy Moose');
+console.log(mountMoose.howMany(['John', 'Fred', 'BOb', 'carl', 'RyAn']))//; => 5
+console.log(mountMoose.howMany(['JoHn', 'Luke', 'AmAndA']))//; => 2

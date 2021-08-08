@@ -142,3 +142,55 @@ print(group_check("({"))#, True)
 def multiple_of_index(arr):
     return [arr[i] for i in range(1,len(arr)) if (arr[i] % i) == 0]
 multiple_of_index([22, -6, 32, 82, 9, 25])#, [-6, 32, 25])
+
+#exp_sum(3) # 3 -> 1+1+1, 1+2, 3
+
+def exp_sum(n):
+  if n < 0:
+    return 0
+  y = [1]+[0]*n
+  for z in range(1,n+1): 
+    for i in range(z,n+1):
+      print(i)  
+      y[i] += y[i-z]
+  print(y)
+  return y[-1]
+
+print(exp_sum(30))
+
+class Song_1(object):
+    def __init__(self, title, artist):
+        self.title = title
+        self.artist = artist
+        self.result = []
+        self.counter = 0
+
+    def how_many(self,names):
+        cap_names = [name.capitalize() for name in names]
+        for name in cap_names:
+            if name not in self.result:
+                self.result.append(name)
+        x = len(self.result) - self.counter
+        self.counter = len(self.result)
+        return x
+
+# better solution     
+class Song:
+    def __init__(self, title, artist):
+        self.title = title
+        self.artist = artist
+        self._seen = set()
+    
+    def how_many(self, people):
+        tmp = set(map(str.lower, people))
+        res = len(tmp - self._seen)
+        self._seen.update(tmp)
+        return res
+        
+mount_moose = Song('Mount Moose', 'The Snazzy Moose')
+print(mount_moose.how_many(['John', 'Fred', 'BOb', 'carl', 'RyAn']))# => 5
+print(mount_moose.how_many(['JoHn', 'Luke', 'AmAndA']))#; => 2
+print(mount_moose.how_many(['Amanda', 'CalEb', 'CarL', 'Furgus']))#, 2))
+
+
+
