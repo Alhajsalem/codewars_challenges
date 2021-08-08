@@ -90,3 +90,14 @@ function Song(title, artist){
 const mountMoose = new Song('Mount Moose', 'The Snazzy Moose');
 console.log(mountMoose.howMany(['John', 'Fred', 'BOb', 'carl', 'RyAn']))//; => 5
 console.log(mountMoose.howMany(['JoHn', 'Luke', 'AmAndA']))//; => 2
+
+
+function Person(name){
+  this.name = name
+  this.greet = function(name){
+    return `Hello ${name}, my name is ${this.name}`
+  }
+}
+var joe = new Person('Joe');
+console.log(joe.greet('Kate')); // should return 'Hello Kate, my name is Joe'
+console.log(joe.name)          // should == 'Joe'
