@@ -101,3 +101,23 @@ function Person(name){
 var joe = new Person('Joe');
 console.log(joe.greet('Kate')); // should return 'Hello Kate, my name is Joe'
 console.log(joe.name)          // should == 'Joe'
+
+
+
+
+Array.prototype.sortReloaded = function(ord){
+  a = this.slice() 
+  if (ord == undefined || ord == 'asc') {
+    return a.sort((a,b) => a-b)
+  }
+  else if (ord == 'desc'){
+    return a.sort((a,b) => b-a)
+  }
+  return false 
+}
+console.log([1, 3, 3, 4, 1].sortReloaded('desc'))
+
+String.prototype.isUpperCase = function() {
+  return !/[a-z]/.test(this);
+}
+console.log(' DONALD'.isUpperCase())

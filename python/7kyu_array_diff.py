@@ -199,4 +199,6 @@ class Person:
         return f"Hello {name_}, my name is {self.name}"
 
 
-
+def is_uppercase(inp):
+    return inp.upper()==inp
+print(is_uppercase("I AM dONALD"))#== False
