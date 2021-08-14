@@ -202,3 +202,48 @@ class Person:
 def is_uppercase(inp):
     return inp.upper()==inp
 print(is_uppercase("I AM dONALD"))#== False
+
+def is_alt(s):
+    for i in range(len(s)-1):
+        if s[i] not in 'aeiou' and s[i+1] not in 'aeiou':return False
+        if s[i] in 'aeiou' and s[i + 1] in 'aeiou': return False
+    return True
+print(is_alt("aqink"))
+
+def index_equals_value(arr):
+    i = 0
+    result = 0
+    while arr[i] <= i:
+        if arr[i] == i:
+            result = arr[i]
+            break
+        i+=1
+    return result
+
+print(index_equals_value([-8,0,2,5]))
+
+def contain_all_rots(strg, arr):
+    x = ""
+    result = []
+    for i in range(len(strg)):
+        x = strg[-1:] + strg[:-1]
+        strg = x
+        result.append(strg)
+    for i in result:
+        if i not in arr:
+            return False
+    return True
+
+contain_all_rots("bsjq", ["bsjq", "qbsj", "sjqb", "twZNsslC", "jqbs"])#, True)
+
+from itertools import permutations
+
+def is_merge(s, part1, part2):
+    sn = list(part1+part2)
+    permutations = list(itertools.permutations(sn))
+    for permutation in permutations:
+        if ''.join(permutation) == s:
+            return True
+    return False
+print(is_merge('codewars', 'cdw', 'oears'))
+
