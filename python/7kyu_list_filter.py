@@ -82,3 +82,8 @@ def return_something(something):
 
 
 return_something('The quick brown fox jumps over the lazy dog.')
+
+def alphanumeric(string):
+    return string.isalnum()
+
+print(alphanumeric("helloworld_"))
