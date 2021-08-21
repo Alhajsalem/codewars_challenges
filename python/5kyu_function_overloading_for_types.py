@@ -31,3 +31,12 @@ def overload_1(*input_types):
             return g(*args, **kwargs)
         return inner
     return outer
+
+
+def add(n):
+    def wrapper_1(m):
+        return n+m
+    return wrapper_1
+
+add_one = add(1)
+print(add_one(3))#, 4)
