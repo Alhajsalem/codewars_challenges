@@ -87,3 +87,14 @@ def alphanumeric(string):
     return string.isalnum()
 
 print(alphanumeric("helloworld_"))
+
+def double_char(s):
+    return "".join([le+le for le in s])
+
+print(double_char("String")) #==> "SSttrriinngg"
+
+def gimme(input_array):
+    return input_array.index(sorted(input_array)[1])
+
+
+gimme([2, 3, 1])#, 0, 
