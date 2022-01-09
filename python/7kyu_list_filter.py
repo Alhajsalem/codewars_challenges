@@ -98,3 +98,18 @@ def gimme(input_array):
 
 
 gimme([2, 3, 1])#, 0, 
+
+def remove_duplicate_words(s):
+    return " ".join((sorted(set(s.split(" ")), key=s.split(" ").index)))
+
+print(remove_duplicate_words("alpha beta beta gamma gamma gamma delta alpha beta beta gamma gamma gamma delta"))
+#, "alpha beta gamma delta")
+
+def to_csv_text(array) :
+    return(str(array).replace('],', '\n').replace('[', '').replace(']', '').replace(' ', '')) 
+
+print(to_csv_text([
+            [5, 55, 5, 5, 55],
+            [6, 6, 66, 23, 24],
+            [666, 31, 66, 33, 7]
+        ]))

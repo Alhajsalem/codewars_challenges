@@ -130,8 +130,43 @@ console.log(minMax[(1, 2, 3, 4, 5)]); //, [1,5])
 var gimme = function (inputArray) {
   arr_copy = [...inputArray];
   return arr_copy.indexOf(inputArray.sort((a,b)=> a-b)[1])
-  
-
-
 };
 gimme([2, 3, 1])//, 0
+
+
+function loopArr(arr, direction, steps) {
+
+  for (let i = 0; i < steps; i++) {
+    if (direction === 'right'){
+      arr.unshift(arr.pop());
+    };
+    if (direction === 'left') {
+       arr.push(arr.shift());
+    };
+  }
+    return arr;
+}
+
+console.log(loopArr([1, 5, 87, 45, 8, 8], 'left', 2))//, [87, 45, 8, 8, 1, 5] )
+
+function removeDuplicateWords (s) {
+  
+  return [...new Set(s.split(" "))].join(" ")
+}
+console.log(removeDuplicateWords('alpha beta beta gamma gamma gamma delta alpha beta beta gamma gamma gamma delta'))
+//, 'alpha beta gamma delta');
+
+function toCsvText(array) {
+  arr = []
+  for (var i of array){
+    arr.push(i.join(","))
+  }
+  return arr.join("\\n")
+}
+
+toCsvText([
+  [ 0, 1, 2, 3, 45 ],
+  [ 10,11,12,13,14 ],
+  [ 20,21,22,23,24 ],
+  [ 30,31,32,33,34 ]
+ ] )
