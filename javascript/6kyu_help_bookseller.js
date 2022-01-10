@@ -42,3 +42,25 @@ function singleDigit(n) {
   return n;
 }
 console.log(singleDigit(443566));
+
+//https://www.codewars.com/kata/5547929140907378f9000039/train/javascript
+function shortcut (string) {
+  const vowels = ["a", "e", "i", "o", "u"];
+  s_array = string.split(" ")
+  s_array.forEach(element => {
+     for(var i = 0; i < vowels.length;i++){
+       
+     }
+  });
+}
+
+shortcut('how are you today?')//, 'hw r y tdy?')
+
+
+function sortme(q) {
+  let a = q.sort((a,b) => (a.toUpperCase() > b.toUpperCase()));
+ return a;
+}
+
+console.log(sortme(["C", "d", "a", "B"]))
+//, ["a", "B", "C", "d"])
