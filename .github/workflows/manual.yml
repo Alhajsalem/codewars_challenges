@@ -22,23 +22,19 @@ jobs:
                 echo 'export SDK=$ANDROID_HOME' >> ~/.bashrc
                 echo 'export PATH=$SDK/emulator:$SDK/tools:$SDK/tools/bin:$SDK/platform-tools:$PATH' >> ~/.bashrc
                 source ~/.bashrc
-                less ~/.bashrc
-                export PATH=$SDK/emulator:$SDK/tools:$SDK/tools/bin:$SDK/platform-tools:$PATH
-                
-                echo yes | sdkmanager --licenses || if [ $? -ne '141' ]; then exit $?; fi;
+                echo yes | /opt/androidsdk/tools/bin/sdkmanager  --licenses || if [ $? -ne '141' ]; then exit $?; fi;
                 mkdir -p /root/.android && touch /root/.android/repositories.cfg
                 echo "started downloading: platform-tools;platforms;android-28;emulator, please wait ...!"
-                echo yes | sdkmanager "platform-tools" "platforms;android-28" "emulator"
+                echo yes | /opt/androidsdk/tools/bin/sdkmanager  "platform-tools" "platforms;android-28" "emulator"
                 echo "started downloading system-images;android-28;google_apis;x86_64,please wait ...!"
-                echo yes | sdkmanager "system-images;android-28;google_apis;x86_64"
+                echo yes | /opt/androidsdk/tools/bin/sdkmanager  "system-images;android-28;google_apis;x86_64"
                 echo "print emulator version...!"
-                emulator -version
-                adb start-server
-                echo no | avdmanager create avd --force -n avd28 -k "system-images;android-28;google_apis;x86_64"
-                emulator -avd avd28 -no-audio -no-accel -no-window &
-                echo "wait"
+                /opt/androidsdk/tools/emulator -version
+                /opt/androidsdk/platform-tools/adb start-server
+                echo no | /opt/androidsdk/tools/bin/avdmanager create avd --force -n avd28 -k "system-images;android-28;google_apis;x86_64"
+                /opt/androidsdk/tools/emulator -avd avd28 -no-audio -no-accel -no-window
                 sleep 500
-                adb devices
+                /opt/androidsdk/platform-tools/adb devices
  
                   
    
