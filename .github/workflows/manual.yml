@@ -14,6 +14,13 @@ jobs:
             - name: start emulator headless
               shell: bash
               run: |
-               echo $ANDROID_HOME                          
+               echo $ANDROID_HOME
+               export SDK=$ANDROID_HOME
+               export PATH=$SDK/emulator
+               export $SDK/tools
+               export $SDK/tools/bin
+               export $SDK/platform-tools
+               ls $SDK/tools/bin
+               sdkmanager
  
                 
