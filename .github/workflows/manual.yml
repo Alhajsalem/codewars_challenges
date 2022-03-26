@@ -16,7 +16,6 @@ jobs:
               run: |
                   sudo apt-get update --fix-missing -y 
                   sudo apt-get install libglu1 libx11-6 pulseaudio libnss3 qt5-default qemu-kvm libxcb-xinerama0 -y
-                  sudo apt install ./libxcb-util1_0.4.0-1+b1_amd64.deb -y
                   export QT_DEBUG_PLUGINS=1
                   echo "starting installing"
                   /usr/local/lib/android/sdk/cmdline-tools/latest/bin/sdkmanager "platform-tools" "platforms;android-28" "emulator"
@@ -25,8 +24,6 @@ jobs:
                   /usr/local/lib/android/sdk/platform-tools/adb start-server
                   sudo adduser $USER kvm
                   grep kvm /etc/group
-                  echo no | /usr/local/lib/android/sdk/cmdline-tools/latest/bin/avdmanager create avd --force -n avd28 -k "system-images;android-28;google_apis;x86_64"
-                  /usr/local/lib/android/sdk/tools/emulator -avd avd28 -no-audio -no-accel -no-window
                   sudo echo no | /usr/local/lib/android/sdk/cmdline-tools/latest/bin/avdmanager create avd --force -n avd28 -k "system-images;android-28;google_apis;x86_64"
                   sudo /usr/local/lib/android/sdk/tools/emulator -avd avd28 -no-audio -no-accel -no-window
   
