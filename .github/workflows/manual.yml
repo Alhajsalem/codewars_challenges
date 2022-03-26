@@ -15,6 +15,7 @@ jobs:
               shell: bash
               run: |
                   sudo apt-get install libglu1 libx11-6 pulseaudio libnss3 -y
+                  sudo apt-get install qt5-default -y
                   /usr/local/lib/android/sdk/cmdline-tools/latest/bin/sdkmanager "platform-tools" "platforms;android-28" "emulator"
                   /usr/local/lib/android/sdk/cmdline-tools/latest/bin/sdkmanager "system-images;android-28;google_apis;x86_64"
                   /usr/local/lib/android/sdk/tools/emulator -version
