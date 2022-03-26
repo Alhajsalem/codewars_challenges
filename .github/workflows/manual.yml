@@ -1,4 +1,4 @@
-name: manuall workflow
+name: work
 on: [push, pull_request]
 jobs:
     analyze-and-test:
@@ -8,23 +8,41 @@ jobs:
             - uses: actions/setup-java@v1
               with:
                   java-version: '11.x'
-            - name: Set up JDK 1.8
-              uses: actions/setup-java@v1
-              with:
-                  java-version: 1.8
-
-            - name: Setup Android SDK
-              uses: android-actions/setup-android@v2
+            # - uses: subosito/flutter-action@v1
+            #   with:
+            #       flutter-version: '2.10.1'
+            #       channel: 'stable'
+            # - run: flutter pub get
+            # - run: flutter pub run build_runner build
+            # - run: flutter analyze
+            # - run: flutter test
             - name: start emulator headless
               shell: bash
               run: |
-               echo $ANDROID_HOME
-               sdkmanager "platform-tools" "platforms;android-28" "emulator"
-               sdkmanager "system-images;android-28;google_apis;x86_64"
-               echo "print emulator version...!"
-               emulator -version
-               adb start-server
-               echo no | avdmanager create avd --force -n avd28 -k "system-images;android-28;google_apis;x86_64"
-               emulator -avd avd28 -no-audio -no-accel -no-window
-               adb devices
-    
+                rm /var/lib/apt/lists/lock
+                sudo su      
+                apt-get update
+                apt-get install procps lsof curl unzip zip libglu1 libx11-6 nxagent wget pulseaudio libnss3 lsb-release -y && apt-get clean all
+                curl -s "https://get.sdkman.io" | bash
+                source "$HOME/.sdkman/bin/sdkman-init.sh"
+                sdk install java 8.0.322-zulu
+                cd ~ && wget https://dl.google.com/android/repository/sdk-tools-linux-4333796.zip
+                ANDROID_HOME=/opt/androidsdk
+                mkdir -p $ANDROID_HOME
+                apt install unzip -y && unzip sdk-tools-linux-4333796.zip -d $ANDROID_HOME
+                echo "export ANDROID_HOME=$ANDROID_HOME" >> ~/.bashrc
+                echo 'export SDK=$ANDROID_HOME' >> ~/.bashrc
+                echo 'export PATH=$SDK/emulator:$SDK/tools:$SDK/tools/bin:$SDK/platform-tools:$PATH' >> ~/.bashrc
+                source ~/.bashrc
+                yes | sdkmanager --licenses || if [ $? -ne '141' ]; then exit $?; fi;
+                mkdir -p /root/.android && touch /root/.android/repositories.cfg
+                echo "started downloading: platform-tools;platforms;android-28;emulator, please wait ...!"
+                sdkmanager "platform-tools" "platforms;android-28" "emulator"
+                echo "started downloading system-images;android-28;google_apis;x86_64,please wait ...!"
+                sdkmanager "system-images;android-28;google_apis;x86_64"
+                echo "print emulator version...!"
+                emulator -version
+                adb start-server
+                echo no | avdmanager create avd --force -n avd28 -k "system-images;android-28;google_apis;x86_64"
+                emulator -avd avd28 -no-audio -no-accel -no-window
+                adb devices
