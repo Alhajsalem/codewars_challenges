@@ -13,25 +13,13 @@ jobs:
               uses: android-actions/setup-android@v2
             - name: start emulator headless
               shell: bash
-              run: |
-                  echo "1"
-                  ls /usr/local/lib/android/sdk/cmdline-tools/latest
-                  echo "2"
-                  ls /usr/local/lib/android/sdk/cmdline-tools/latest/bin
-                  echo "3"
-                  ls /usr/local/lib/android/sdk/cmdline-tools
-                  echo "7"
-                  ls /usr/local/lib/android/sdk/cmdline-tools/latest/lib
-                  
+              run: |               
                   /usr/local/lib/android/sdk/cmdline-tools/latest/bin/sdkmanager "platform-tools" "platforms;android-28" "emulator"
                   /usr/local/lib/android/sdk/cmdline-tools/latest/bin/sdkmanager "system-images;android-28;google_apis;x86_64"
-                  echo "4"
-                  ls /usr/local/lib/android/sdk/cmdline-tools/latest
-                  echo "5"
-                  ls /usr/local/lib/android/sdk/cmdline-tools/latest/bin
-                  echo "6"
-                  ls /usr/local/lib/android/sdk/cmdline-tools
-                  ls /usr/local/lib/android/sdk/cmdline-tools/latest/lib
+                  ls /usr/local/lib/android/sdk/tools
+ 
+                  
+   
                   
                   
                   
