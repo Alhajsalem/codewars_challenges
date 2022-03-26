@@ -35,7 +35,7 @@ jobs:
                 /opt/androidsdk/platform-tools/adb start-server
                 sudo adduser $USER kvm
                 export QT_DEBUG_PLUGINS=1
-                sudo apt-get --reinstall install libqt5dbus5 libqt5widgets5 libqt5network5 libqt5gui5 libqt5core5a libdouble-conversion1 libxcb-xinerama0 
+                sudo apt-get --reinstall install libqt5dbus5 libqt5widgets5 libqt5network5 libqt5gui5 libqt5core5a libxcb-xinerama0 -y 
                 sudo ln -sf /usr/lib/x86_64-linux-gnu/qt5/plugins/platforms/ /usr/bin/platforms
                 echo no | /opt/androidsdk/tools/bin/avdmanager create avd --force -n avd28 -k "system-images;android-28;google_apis;x86_64"
                 /opt/androidsdk/tools/emulator -avd avd28 -no-audio -no-accel -no-window
