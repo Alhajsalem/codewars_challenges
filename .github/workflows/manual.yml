@@ -14,8 +14,11 @@ jobs:
             - name: start emulator headless
               shell: bash
               run: |
-                  /usr/local/lib/android/sdk/cmdline-tools/latest/bin/sdkmanager "platform-tools" "platforms;android-28" "emulator"
-                  /usr/local/lib/android/sdk/cmdline-tools/latest/bin/sdkmanager "system-images;android-28;google_apis;x86_64"
-                  emulator -version
+                  ls /usr/local/lib/android/sdk/cmdline-tools/latest
+                  ls /usr/local/lib/android/sdk/cmdline-tools/bin
+                  ls /usr/local/lib/android/sdk/cmdline-tools
+                  
+                  
+                  
  
                 
