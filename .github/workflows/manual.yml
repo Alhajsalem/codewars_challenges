@@ -42,8 +42,8 @@ jobs:
                 export LD_LIBRARY_PATH="/opt/androidsdk/tools/emulator/lib64:$LD_LIBRARY_PATH"
                 export QT_QPA_PLATFORM_PLUGIN_PATH=/usr/lib/x86_64-linux-gnu/qt5/plugins
                 echo no | /opt/androidsdk/tools/bin/avdmanager create avd --force -n avd28 -k "system-images;android-28;google_apis;x86_64"
-                /opt/androidsdk/tools/emulator -avd avd28 -no-audio -no-boot-anim -no-window -accel on -gpu off &
-                sleep 500
+                /opt/androidsdk/tools/emulator -avd avd28 -no-audio -no-boot-anim -no-window -no-accel -gpu off &
+                sleep 300
                 /opt/androidsdk/platform-tools/adb devices
  
                   
