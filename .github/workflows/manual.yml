@@ -16,6 +16,8 @@ jobs:
               run: |
                   sudo apt-get update --fix-missing -y 
                   sudo apt-get install libglu1 libx11-6 pulseaudio libnss3 qt5-default qemu-kvm libxcb-xinerama0 -y
+                  sudo apt install ./libxcb-util1_0.4.0-1+b1_amd64.deb -y
+                  export QT_DEBUG_PLUGINS=1
                   echo "starting installing"
                   /usr/local/lib/android/sdk/cmdline-tools/latest/bin/sdkmanager "platform-tools" "platforms;android-28" "emulator"
                   /usr/local/lib/android/sdk/cmdline-tools/latest/bin/sdkmanager "system-images;android-28;google_apis;x86_64"
