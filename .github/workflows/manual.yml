@@ -20,6 +20,9 @@ jobs:
                   ls /usr/local/lib/android/sdk/cmdline-tools/latest/bin
                   echo "3"
                   ls /usr/local/lib/android/sdk/cmdline-tools
+                  echo "7"
+                  ls /usr/local/lib/android/sdk/cmdline-tools/latest/lib
+                  
                   /usr/local/lib/android/sdk/cmdline-tools/latest/bin/sdkmanager "platform-tools" "platforms;android-28" "emulator"
                   /usr/local/lib/android/sdk/cmdline-tools/latest/bin/sdkmanager "system-images;android-28;google_apis;x86_64"
                   echo "4"
@@ -28,6 +31,7 @@ jobs:
                   ls /usr/local/lib/android/sdk/cmdline-tools/latest/bin
                   echo "6"
                   ls /usr/local/lib/android/sdk/cmdline-tools
+                  ls /usr/local/lib/android/sdk/cmdline-tools/latest/lib
                   
                   
                   
