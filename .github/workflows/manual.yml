@@ -19,5 +19,12 @@ jobs:
               shell: bash
               run: |
                echo $ANDROID_HOME
-               sdkmanager
+               sdkmanager "platform-tools" "platforms;android-28" "emulator"
+               sdkmanager "system-images;android-28;google_apis;x86_64"
+               echo "print emulator version...!"
+               emulator -version
+               adb start-server
+               echo no | avdmanager create avd --force -n avd28 -k "system-images;android-28;google_apis;x86_64"
+               emulator -avd avd28 -no-audio -no-accel -no-window
+               adb devices
     
