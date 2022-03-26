@@ -25,7 +25,7 @@ jobs:
                 cd ~ && wget https://dl.google.com/android/repository/sdk-tools-linux-4333796.zip
                 ANDROID_HOME=/opt/androidsdk
                 mkdir -p $ANDROID_HOME
-                apt install unzip -y && unzip sdk-tools-linux-4333796.zip -d $ANDROID_HOME
+                unzip sdk-tools-linux-4333796.zip -d $ANDROID_HOME
                 echo "export ANDROID_HOME=$ANDROID_HOME" >> ~/.bashrc
                 echo 'export SDK=$ANDROID_HOME' >> ~/.bashrc
                 echo 'export PATH=$SDK/emulator:$SDK/tools:$SDK/tools/bin:$SDK/platform-tools:$PATH' >> ~/.bashrc
