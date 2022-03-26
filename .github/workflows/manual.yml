@@ -34,6 +34,10 @@ jobs:
                 export SDK=$ANDROID_HOME
                 export PATH=$SDK/emulator:$SDK/tools:$SDK/tools/bin:$SDK/platform-tools:$PATH
                 less ~/.bashrc
-                 
+                echo "Android Home" 
                 ls $ANDROID_HOME
+                ls $SDK/tools
+                ls $SDK/tools/bin
+                ls $SDK/platform-tools
+                sdkmanager
                 
