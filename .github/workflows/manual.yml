@@ -15,21 +15,16 @@ jobs:
               shell: bash
               run: |
                   sudo apt-get update --fix-missing -y 
-                  sudo apt-get install libglu1 libx11-6 pulseaudio libnss3 -y
+                  sudo apt-get install libglu1 libx11-6 pulseaudio libnss3 qt5-default qemu-kvm -y
                   echo "starting installing"
                   /usr/local/lib/android/sdk/cmdline-tools/latest/bin/sdkmanager "platform-tools" "platforms;android-28" "emulator"
                   /usr/local/lib/android/sdk/cmdline-tools/latest/bin/sdkmanager "system-images;android-28;google_apis;x86_64"
                   /usr/local/lib/android/sdk/tools/emulator -version
                   /usr/local/lib/android/sdk/platform-tools/adb start-server
-                  echo $USER
-                  sudo apt-get install qt5-default -y
-                  sudo apt install qemu-kvm -y
                   sudo adduser $USER kvm
-                  sudo gpasswd -a $USER kvm
-                  ls -al /dev/kvm
                   grep kvm /etc/group
-                  sudo echo no | /usr/local/lib/android/sdk/cmdline-tools/latest/bin/avdmanager create avd --force -n avd28 -k "system-images;android-28;google_apis;x86_64"
-                  sudo /usr/local/lib/android/sdk/tools/emulator -avd avd28 -no-audio -no-accel -no-window
+                  echo no | /usr/local/lib/android/sdk/cmdline-tools/latest/bin/avdmanager create avd --force -n avd28 -k "system-images;android-28;google_apis;x86_64"
+  
                  
  
                   
