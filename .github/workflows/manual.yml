@@ -4,35 +4,36 @@ jobs:
     analyze-and-test:
         runs-on: ubuntu-latest
         steps:
-            - uses: actions/checkout@v2
-            - name: Set up JDK 1.8
-              uses: actions/setup-java@v1
-              with:
-                  java-version: 1.8
             - name: start emulator headless
               shell: bash
               run: |
-                sudo apt-get install libglu1 libx11-6 pulseaudio libnss3 -y
+                sudo apt-get update
+                sudo apt-get install procps lsof curl unzip zip libglu1 libx11-6 nxagent wget pulseaudio libnss3 lsb-release -y && apt-get clean all
+                curl -s "https://get.sdkman.io" | bash
+                source "$HOME/.sdkman/bin/sdkman-init.sh"
+                sdk install java 8.0.322-zulu
                 cd ~ && wget https://dl.google.com/android/repository/sdk-tools-linux-4333796.zip
                 ANDROID_HOME=/opt/androidsdk
                 mkdir -p $ANDROID_HOME
                 unzip sdk-tools-linux-4333796.zip -d $ANDROID_HOME
                 echo "export ANDROID_HOME=$ANDROID_HOME" >> ~/.bashrc
                 echo 'export SDK=$ANDROID_HOME' >> ~/.bashrc
-                echo 'export PATH=$SDK/emulator:$SDK/tools:$SDK/tools/bin:$PATH' >> ~/.bashrc
+                echo 'export PATH=$SDK/emulator:$SDK/tools:$SDK/tools/bin:$SDK/platform-tools:$PATH' >> ~/.bashrc
                 source ~/.bashrc
-                echo yes | /opt/androidsdk/tools/bin/sdkmanager  --licenses || if [ $? -ne '141' ]; then exit $?; fi;
+                echo yes | sdkmanager --licenses || if [ $? -ne '141' ]; then exit $?; fi;
                 mkdir -p /root/.android && touch /root/.android/repositories.cfg
                 echo "started downloading: platform-tools;platforms;android-28;emulator, please wait ...!"
-                echo yes | /opt/androidsdk/tools/bin/sdkmanager  "platform-tools" "platforms;android-28" "emulator"
+                echo yes | sdkmanager "platform-tools" "platforms;android-28" "emulator"
                 echo "started downloading system-images;android-28;google_apis;x86_64,please wait ...!"
-                echo yes | /opt/androidsdk/tools/bin/sdkmanager  "system-images;android-28;google_apis;x86_64"
+                echo yes | sdkmanager "system-images;android-28;google_apis;x86_64"
                 echo "print emulator version...!"
-                /opt/androidsdk/tools/emulator -version
-                /opt/androidsdk/platform-tools/adb start-server
-                echo no | /opt/androidsdk/tools/bin/avdmanager create avd --force -n avd28 -k "system-images;android-28;google_apis;x86_64"
-                /opt/androidsdk/tools/emulator -avd avd28 -no-audio -no-accel -no-window
-                /opt/androidsdk/platform-tools/adb devices
+                emulator -version
+                adb start-server
+                echo no | avdmanager create avd --force -n avd28 -k "system-images;android-28;google_apis;x86_64"
+                emulator -avd avd28 -no-audio -no-accel -no-window &
+                echo "wait"
+                sleep 500
+                adb devices
  
                   
    
