@@ -24,7 +24,7 @@ jobs:
                 export SDK=$ANDROID_HOME
                 export PATH=$SDK/emulator:$SDK/tools:$SDK/tools/bin:$SDK/platform-tools:$PATH
                 yes | sdkmanager --licenses || if [ $? -ne '141' ]; then exit $?; fi;
-                mkdir -p /root/.android && touch /root/.android/repositories.cfg
+
                 echo "started downloading: platform-tools;platforms;android-28;emulator, please wait ...!"
                 sdkmanager "platform-tools" "platforms;android-28" "emulator"
                 echo "started downloading system-images;android-28;google_apis;x86_64,please wait ...!"
