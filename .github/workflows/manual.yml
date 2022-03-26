@@ -23,7 +23,7 @@ jobs:
                 export ANDROID_HOME=$ANDROID_HOME
                 export SDK=$ANDROID_HOME
                 export PATH=$SDK/emulator:$SDK/tools:$SDK/tools/bin:$SDK/platform-tools:$PATH
-                yes | sdkmanager --licenses || if [ $? -ne '141' ]; then exit $?; fi;
+                yes | sdkmanager --licenses
 
                 echo "started downloading: platform-tools;platforms;android-28;emulator, please wait ...!"
                 sdkmanager "platform-tools" "platforms;android-28" "emulator"
