@@ -30,15 +30,10 @@ jobs:
                 echo 'export SDK=$ANDROID_HOME' >> ~/.bashrc
                 echo 'export PATH=$SDK/emulator:$SDK/tools:$SDK/tools/bin:$SDK/platform-tools:$PATH' >> ~/.bashrc
                 source ~/.bashrc
-                yes | sdkmanager --licenses || if [ $? -ne '141' ]; then exit $?; fi;
-                mkdir -p /root/.android && touch /root/.android/repositories.cfg
-                echo "started downloading: platform-tools;platforms;android-28;emulator, please wait ...!"
-                sdkmanager "platform-tools" "platforms;android-28" "emulator"
-                echo "started downloading system-images;android-28;google_apis;x86_64,please wait ...!"
-                sdkmanager "system-images;android-28;google_apis;x86_64"
-                echo "print emulator version...!"
-                emulator -version
-                adb start-server
-                echo no | avdmanager create avd --force -n avd28 -k "system-images;android-28;google_apis;x86_64"
-                emulator -avd avd28 -no-audio -no-accel -no-window
-                adb devices
+                export ANDROID_HOME=$ANDROID_HOME
+                export SDK=$ANDROID_HOME
+                export PATH=$SDK/emulator:$SDK/tools:$SDK/tools/bin:$SDK/platform-tools:$PATH
+                less ~/.bashrc
+                 
+                ls $ANDROID_HOME
+                
