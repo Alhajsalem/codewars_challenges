@@ -15,7 +15,7 @@ jobs:
               shell: bash
               run: |
                   ls /usr/local/lib/android/sdk/cmdline-tools/latest
-                  ls /usr/local/lib/android/sdk/cmdline-tools/bin
+                  ls /usr/local/lib/android/sdk/cmdline-tools/latest/bin
                   ls /usr/local/lib/android/sdk/cmdline-tools
                   
                   
