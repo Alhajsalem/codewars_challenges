@@ -34,6 +34,7 @@ jobs:
                 /opt/androidsdk/tools/emulator -version
                 /opt/androidsdk/platform-tools/adb start-server
                 sudo adduser $USER kvm
+                grep -cw ".*\(vmx\|svm\).*" /proc/cpuinfo
                 export QT_DEBUG_PLUGINS=1
                 sudo apt-get --reinstall install libqt5dbus5 libqt5widgets5 libqt5network5 libqt5gui5 libqt5core5a libxcb-xinerama0 -y 
                 sudo ln -sf /usr/lib/x86_64-linux-gnu/qt5/plugins/platforms/ /usr/bin/platforms
