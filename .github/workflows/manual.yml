@@ -38,6 +38,5 @@ jobs:
                 ls $ANDROID_HOME
                 ls $SDK/tools
                 ls $SDK/tools/bin
-                ls $SDK/platform-tools
                 sdkmanager
                 
