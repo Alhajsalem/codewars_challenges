@@ -1,5 +1,5 @@
-name: manual workflow
-on:
+name: manuall workflow
+on: [push, pull_request]
 jobs:
     analyze-and-test:
         runs-on: ubuntu-latest
@@ -20,3 +20,4 @@ jobs:
               run: |
                echo $ANDROID_HOME
                sdkmanager
+    
