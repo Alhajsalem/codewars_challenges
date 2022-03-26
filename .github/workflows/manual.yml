@@ -34,7 +34,9 @@ jobs:
                 /opt/androidsdk/tools/emulator -version
                 /opt/androidsdk/platform-tools/adb start-server
                 sudo adduser $USER kvm
-                chown root:kvm /dev/kvm && chmod 660 /dev/kvm
+                sudo chgrp kvm /dev/kvm
+                sudo chmod g+rw /dev/kvm
+                sudo chown root:kvm /dev/kvm && chmod 660 /dev/kvm
                 echo "############ CheckCheck"
                 grep -cw ".*\(vmx\|svm\).*" /proc/cpuinfo
                 export QT_DEBUG_PLUGINS=1
