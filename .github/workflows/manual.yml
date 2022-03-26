@@ -14,6 +14,7 @@ jobs:
             - name: start emulator headless
               shell: bash
               run: |
+                  sudo apt-get update --fix-missing -y 
                   sudo apt-get install libglu1 libx11-6 pulseaudio libnss3 -y
                   sudo apt-get install qt5-default -y
                   echo "starting installing"
