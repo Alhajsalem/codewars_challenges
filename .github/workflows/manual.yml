@@ -16,8 +16,8 @@ jobs:
                 sdk install java 8.0.322-zulu
                 cd ~ && wget https://dl.google.com/android/repository/sdk-tools-linux-4333796.zip
                 ANDROID_HOME=/opt/androidsdk
-                sudo mkdir -p $ANDROID_HOME
-                sudo unzip sdk-tools-linux-4333796.zip -d $ANDROID_HOME
+                mkdir -p $ANDROID_HOME
+                unzip sdk-tools-linux-4333796.zip -d $ANDROID_HOME
                 echo "export ANDROID_HOME=$ANDROID_HOME" >> ~/.bashrc
                 echo 'export SDK=$ANDROID_HOME' >> ~/.bashrc
                 echo 'export PATH=$SDK/emulator:$SDK/tools:$SDK/tools/bin:$SDK/platform-tools:$PATH' >> ~/.bashrc
