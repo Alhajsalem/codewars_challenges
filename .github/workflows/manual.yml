@@ -12,6 +12,7 @@ jobs:
             - name: start emulator headless
               shell: bash
               run: |
+                sudo apt-get install libglu1 libx11-6 pulseaudio libnss3 -y
                 cd ~ && wget https://dl.google.com/android/repository/sdk-tools-linux-4333796.zip
                 ANDROID_HOME=/opt/androidsdk
                 mkdir -p $ANDROID_HOME
