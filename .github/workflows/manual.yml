@@ -20,7 +20,7 @@ jobs:
                 echo 'export SDK=$ANDROID_HOME' >> ~/.bashrc
                 echo 'export PATH=$SDK/emulator:$SDK/tools:$SDK/tools/bin:$PATH' >> ~/.bashrc
                 source ~/.bashrc
-                yes | /opt/androidsdk/tools/bin/sdkmanager  --licenses || if [ $? -ne '141' ]; then exit $?; fi;
+                echo yes | /opt/androidsdk/tools/bin/sdkmanager  --licenses || if [ $? -ne '141' ]; then exit $?; fi;
                 sudo mkdir -p /root/.android && touch /root/.android/repositories.cfg
                 echo "started downloading: platform-tools;platforms;android-28;emulator, please wait ...!"
                 /opt/androidsdk/tools/bin/sdkmanager  "platform-tools" "platforms;android-28" "emulator"
