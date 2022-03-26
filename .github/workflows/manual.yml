@@ -19,7 +19,7 @@ jobs:
             - name: start emulator headless
               shell: bash
               run: |
-                rm /var/lib/apt/lists/lock
+                sudo rm /var/lib/apt/lists/lock
                 sudo su      
                 apt-get update
                 apt-get install procps lsof curl unzip zip libglu1 libx11-6 nxagent wget pulseaudio libnss3 lsb-release -y && apt-get clean all
