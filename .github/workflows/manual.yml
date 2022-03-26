@@ -21,7 +21,10 @@ jobs:
                   /usr/local/lib/android/sdk/cmdline-tools/latest/bin/sdkmanager "system-images;android-28;google_apis;x86_64"
                   /usr/local/lib/android/sdk/tools/emulator -version
                   /usr/local/lib/android/sdk/platform-tools/adb start-server
-                  sudo apt-get install qt5-default
+                  echo $USER
+                  sudo apt-get install qt5-default -y
+                  sudo apt install qemu-kvm -y
+                  sudo adduser $USER kvm
                   sudo gpasswd -a $USER kvm
                   echo no | /usr/local/lib/android/sdk/cmdline-tools/latest/bin/avdmanager create avd --force -n avd28 -k "system-images;android-28;google_apis;x86_64"
                   /usr/local/lib/android/sdk/tools/emulator -avd avd28 -no-audio -no-accel -no-window
