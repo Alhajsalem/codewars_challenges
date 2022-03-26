@@ -19,7 +19,6 @@ jobs:
             - name: start emulator headless
               shell: bash
               run: |      
-                sudo apt-get install procps lsof curl unzip zip libglu1 libx11-6 nxagent wget pulseaudio libnss3 lsb-release -y && apt-get clean all
                 curl -s "https://get.sdkman.io" | bash
                 source "$HOME/.sdkman/bin/sdkman-init.sh"
                 sdk install java 8.0.322-zulu
