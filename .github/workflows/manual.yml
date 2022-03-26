@@ -7,11 +7,7 @@ jobs:
             - name: start emulator headless
               shell: bash
               run: |
-                sudo rm /var/cache/apt/archives/lock 
-                sudo rm -r /var/cache/apt/archives/
-                sudo rm /var/lib/apt/lists/lock 
-                sudo rm /var/cache/apt/pkgcache.bin
-                sudo rm /var/cache/apt/srcpkgcache.bin
+                sudo killall apt-get
                 sudo apt-get update
                 sudo apt-get install procps lsof curl unzip zip libglu1 libx11-6 nxagent wget pulseaudio libnss3 lsb-release -y && apt-get clean all
                 curl -s "https://get.sdkman.io" | bash
