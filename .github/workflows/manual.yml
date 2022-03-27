@@ -29,7 +29,7 @@ jobs:
                   docker exec -t emulator-headless  /bin/sh -c  'emulator -avd avd28 -no-audio -no-accel -no-window'&
                   sleep 4
                   /usr/local/lib/android/sdk/platform-tools/adb devices
-                  sleep 60
+                  sleep 40
                   /usr/local/lib/android/sdk/platform-tools/adb devices
                   docker container stop emulator-headless
                   docker container rm emulator-headless
