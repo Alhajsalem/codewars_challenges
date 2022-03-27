@@ -9,44 +9,17 @@ jobs:
               uses: actions/setup-java@v1
               with:
                   java-version: 1.8
+            - name: Setup Android SDK
+              uses: android-actions/setup-android@v2
             - name: start emulator headless
               shell: bash
               run: |
-                sudo apt-get clean
-                sudo apt-get update
-                sudo apt-get upgrade -f
-                sudo apt-get install procps lsof curl unzip zip libglu1 libx11-6 nxagent wget pulseaudio libnss3 lsb-release -y
-                cd ~ && wget https://dl.google.com/android/repository/sdk-tools-linux-4333796.zip
-                ANDROID_HOME=/opt/androidsdk
-                mkdir -p $ANDROID_HOME
-                unzip sdk-tools-linux-4333796.zip -d $ANDROID_HOME
-                echo "export ANDROID_HOME=$ANDROID_HOME" >> ~/.bashrc
-                echo 'export SDK=$ANDROID_HOME' >> ~/.bashrc
-                echo 'export PATH=$SDK/emulator:$SDK/tools:$SDK/tools/bin:$SDK/platform-tools:$PATH' >> ~/.bashrc
-                source ~/.bashrc
-                echo yes | /opt/androidsdk/tools/bin/sdkmanager  --licenses || if [ $? -ne '141' ]; then exit $?; fi;
-                mkdir -p /root/.android && touch /root/.android/repositories.cfg
-                echo "started downloading: platform-tools;platforms;android-28;emulator, please wait ...!"
-                echo yes | /opt/androidsdk/tools/bin/sdkmanager  "platform-tools" "platforms;android-28" "emulator"
-                echo "started downloading system-images;android-28;google_apis;x86_64,please wait ...!"
-                echo yes | /opt/androidsdk/tools/bin/sdkmanager  "system-images;android-28;google_apis;x86_64"
-                echo "print emulator version...!"
-                /opt/androidsdk/tools/emulator -version
-                /opt/androidsdk/platform-tools/adb start-server
-                sudo adduser $USER kvm
-                sudo chown $USER:kvm /dev/kvm 
-                sudo chmod 660 /dev/kvm
-                echo "############ CheckCheck"
-                grep -cw ".*\(vmx\|svm\).*" /proc/cpuinfo
-                export QT_DEBUG_PLUGINS=1
-                sudo apt-get --reinstall install libqt5dbus5 libqt5widgets5 libqt5network5 libqt5gui5 libqt5core5a libxcb-xinerama0 -y 
-                sudo ln -sf /usr/lib/x86_64-linux-gnu/qt5/plugins/platforms/ /usr/bin/platforms
-                export LD_LIBRARY_PATH="/opt/androidsdk/tools/emulator/lib64:$LD_LIBRARY_PATH"
-                export QT_QPA_PLATFORM_PLUGIN_PATH=/usr/lib/x86_64-linux-gnu/qt5/plugins
-                echo no | /opt/androidsdk/tools/bin/avdmanager create avd --force -n avd28 -k "system-images;android-28;google_apis;x86_64"
-                /opt/androidsdk/tools/emulator -avd avd28 -no-audio -no-boot-anim -no-window -no-accel -gpu off &
-                sleep 300
-                /opt/androidsdk/platform-tools/adb devices
+                  sudo apt-get update --fix-missing -y 
+                  sudo apt-get install libglu1 libx11-6 pulseaudio libnss3 -y
+                  echo "starting installing"
+                  /usr/local/lib/android/sdk/cmdline-tools/latest/bin/sdkmanager "platform-tools" "platforms;android-28" "emulator"
+                  /usr/local/lib/android/sdk/cmdline-tools/latest/bin/sdkmanager "system-images;android-28;google_apis;x86_64"
+                  docker run  --privileged -d --name emulator-headless  -p 5037:5037 -v /usr/local/lib/android/sdk/cmdline-tools/latest/bin/sdkmanager:/opt/android-sdk thyrlian/android-sdk
  
                   
    
