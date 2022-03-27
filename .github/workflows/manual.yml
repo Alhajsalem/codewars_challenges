@@ -19,7 +19,21 @@ jobs:
                   echo "starting installing"
                   /usr/local/lib/android/sdk/cmdline-tools/latest/bin/sdkmanager "platform-tools" "platforms;android-28" "emulator"
                   /usr/local/lib/android/sdk/cmdline-tools/latest/bin/sdkmanager "system-images;android-28;google_apis;x86_64"
-                  docker run  --privileged -d --name emulator-headless  -p 5037:5037 -v /usr/local/lib/android/sdk/cmdline-tools/latest/bin/sdkmanager:/opt/android-sdk thyrlian/android-sdk
+                  docker run  --privileged -d --name emulator-headless  -p 5037:5037 -v /usr/local/lib/android/sdk:/opt/android-sdk thyrlian/android-sdk
+                  /usr/local/lib/android/sdk/platform-tools/adb connect 0.0.0.0:5037 && /usr/local/lib/android/sdk/platform-tools/adb connect 0.0.0.0:5037
+                  sleep 3
+                  /usr/local/lib/android/sdk/platform-tools/adb devices
+                  sleep 4
+                  docker exec -t emulator-headless /bin/sh -c  'echo no | avdmanager create avd --force -n avd28 -k "system-images;android-28;google_apis;x86_64"'
+                  sleep 4
+                  docker exec -t emulator-headless  /bin/sh -c  'emulator -avd avd28 -no-audio -no-accel -no-window'&
+                  sleep 4
+                  /usr/local/lib/android/sdk/platform-tools/adb devices
+                  sleep 60
+                  /usr/local/lib/android/sdk/platform-tools/adb devices
+                  docker container stop emulator-headless
+                  docker container rm emulator-headless
+
  
                   
    
