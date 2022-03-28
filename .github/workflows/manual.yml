@@ -18,8 +18,7 @@ jobs:
               shell: bash
               run: |
                   ls /home/runner/work/codewars_challenges/codewars_challenges
-                  sudo apt-get update --fix-missing -y 
-                  sudo apt-get install libglu1 libx11-6 pulseaudio libnss3 -y
+                  sudo apt-get update
                   echo "starting installing"
                   /usr/local/lib/android/sdk/platform-tools/adb version  
                   /usr/local/lib/android/sdk/platform-tools/adb kill-server
@@ -31,12 +30,9 @@ jobs:
                   /usr/local/lib/android/sdk/platform-tools/adb devices
                   sleep 4
                   docker exec -t emulator-headless /bin/sh -c  'echo no | avdmanager create avd --force -n avd28 -k "system-images;android-28;google_apis;x86_64"'
-                  sleep 4
-                                                                 
-                  docker exec -t emulator-headless  /bin/sh -c  'emulator -avd avd28 -no-audio -no-window -no-accel -wipe-data -no-window -no-boot-anim'&
-                  sleep 4
-                  /usr/local/lib/android/sdk/platform-tools/adb devices
-                  sleep 40
+                  sleep 4                                                 
+                  docker exec -t emulator-headless  /bin/sh -c  'emulator -avd avd28 -no-audio -no-window -no-accel -no-snapshot -no-window -no-boot-anim'&
+                  sleep 120
                   /usr/local/lib/android/sdk/platform-tools/adb devices
                   /usr/local/lib/android/sdk/platform-tools/adb install /home/runner/work/codewars_challenges/codewars_challenges/apps/app-debug.apk
                   docker container stop emulator-headless
