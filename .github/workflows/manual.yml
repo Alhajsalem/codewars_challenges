@@ -33,7 +33,7 @@ jobs:
                   sleep 4
                   docker exec -t emulator-headless  /bin/sh -c  'emulator -avd avd28 -no-audio -no-window -no-accel -partition-size 8000 -wipe-data -no-window -no-boot-anim'&
                   sleep 120
-                  echo "check devices again"
+                  echo "check devices againr"
                   /usr/local/lib/android/sdk/platform-tools/adb devices
                   echo "installing the app"
                   /usr/local/lib/android/sdk/platform-tools/adb install /home/runner/work/codewars_challenges/codewars_challenges/apps/app-debug.apk
