@@ -30,8 +30,8 @@ jobs:
                   /usr/local/lib/android/sdk/platform-tools/adb devices
                   sleep 4
                   docker exec -t emulator-headless /bin/sh -c  'echo no | avdmanager create avd --force -n avd28 -k "system-images;android-28;google_apis;x86_64"'
-                  sleep 4                                                 
-                  docker exec -t emulator-headless  /bin/sh -c  'emulator -avd avd28 -no-audio -no-window -no-accel -no-snapshot -wipe-data -no-window -no-boot-anim'&
+                  sleep 4
+                  docker exec -t emulator-headless  /bin/sh -c  'emulator -avd avd28 -no-audio -no-window -no-accel -partition-size 1024 -wipe-data -no-window -no-boot-anim'&
                   sleep 120
                   /usr/local/lib/android/sdk/platform-tools/adb devices
                   /usr/local/lib/android/sdk/platform-tools/adb install /home/runner/work/codewars_challenges/codewars_challenges/apps/app-debug.apk
