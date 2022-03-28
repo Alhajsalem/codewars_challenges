@@ -38,6 +38,8 @@ jobs:
                   /usr/local/lib/android/sdk/platform-tools/adb devices
                   sleep 40
                   /usr/local/lib/android/sdk/platform-tools/adb devices
+            - name: start integration tests
+            - run: flutter drive test_driver/main.dart
  
  
                   
