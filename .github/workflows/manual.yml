@@ -38,14 +38,7 @@ jobs:
                   /usr/local/lib/android/sdk/platform-tools/adb devices
                   sleep 40
                   /usr/local/lib/android/sdk/platform-tools/adb devices
-            - name: start integration tests
-            - run: flutter drive test_driver/main.dart
-            - name : stop and remove the docker containers
-              shell: bash
-              run: |
-                  docker container stop emulator-headless
-                  docker container rm emulator-headless
-
+ 
  
                   
    
