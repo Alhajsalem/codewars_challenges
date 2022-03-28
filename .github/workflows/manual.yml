@@ -17,7 +17,12 @@ jobs:
             - name: start emulator headless
               shell: bash
               run: |
-                  ls /home/runner/work/codewars_challenges/apps/
+                  echo "zzzzz"
+                  ls /home/runner/work/
+                  echo "eeeee"
+                  ls /home/runner/work/codewars_challenges/
+                  echo "bbbbbb"
+                  ls /home/runner/work/codewars_challenges/codewars_challenges
                   sudo apt-get update --fix-missing -y 
                   sudo apt-get install libglu1 libx11-6 pulseaudio libnss3 -y
                   echo "starting installing"
@@ -36,7 +41,7 @@ jobs:
                   /usr/local/lib/android/sdk/platform-tools/adb devices
                   sleep 40
                   /usr/local/lib/android/sdk/platform-tools/adb devices
-                  /usr/local/lib/android/sdk/platform-tools/adb install /home/runner/work/codewars_challenges/apps/app.apk
+                  /usr/local/lib/android/sdk/platform-tools/adb install /home/runner/work/codewars_challenges/codewars_challenges/apps/app-debug.apk
                   docker container stop emulator-headless
                   docker container rm emulator-headless
  
