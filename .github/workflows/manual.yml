@@ -26,6 +26,7 @@ jobs:
                   sudo apt-get update --fix-missing -y 
                   sudo apt-get install libglu1 libx11-6 pulseaudio libnss3 -y
                   echo "starting installing"
+                  /usr/local/lib/android/sdk/platform-tools/adb version  
                   /usr/local/lib/android/sdk/platform-tools/adb kill-server
                   /usr/local/lib/android/sdk/cmdline-tools/latest/bin/sdkmanager "platform-tools" "platforms;android-28" "emulator"
                   /usr/local/lib/android/sdk/cmdline-tools/latest/bin/sdkmanager "system-images;android-28;google_apis;x86_64"
