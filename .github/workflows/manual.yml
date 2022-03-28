@@ -17,11 +17,6 @@ jobs:
             - name: start emulator headless
               shell: bash
               run: |
-                  echo "zzzzz"
-                  ls /home/runner/work/
-                  echo "eeeee"
-                  ls /home/runner/work/codewars_challenges/
-                  echo "bbbbbb"
                   ls /home/runner/work/codewars_challenges/codewars_challenges
                   sudo apt-get update --fix-missing -y 
                   sudo apt-get install libglu1 libx11-6 pulseaudio libnss3 -y
