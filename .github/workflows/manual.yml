@@ -17,10 +17,10 @@ jobs:
             - name: start emulator headless
               shell: bash
               run: |
-                  ls home/
-                  ls home/runner/
-                  ls home/runner/work/
-                  ls home/runner/work/apps/
+                  ls /home/
+                  ls /home/runner/
+                  ls /home/runner/work/
+                  ls /home/runner/work/apps/
                   sudo apt-get update --fix-missing -y 
                   sudo apt-get install libglu1 libx11-6 pulseaudio libnss3 -y
                   echo "starting installing"
