@@ -14,10 +14,6 @@ jobs:
                   channel: 'stable'
             - name: Setup Android SDK
               uses: android-actions/setup-android@v2
-            - run: flutter pub get
-            - run: flutter pub run build_runner build
-            - run: flutter analyze
-            - run: flutter test
             - name: start emulator headless
               shell: bash
               run: |
@@ -33,7 +29,7 @@ jobs:
                   sleep 4
                   docker exec -t emulator-headless /bin/sh -c  'echo no | avdmanager create avd --force -n avd28 -k "system-images;android-28;google_apis;x86_64"'
                   sleep 4
-                  docker exec -t emulator-headless  /bin/sh -c  'emulator -avd avd28 -no-audio -no-accel -no-window'&
+                  docker exec -t emulator-headless  /bin/sh -c  'emulator -avd avd28 -wipe-data -no-boot-anim -no-audio -accel on -gpu off -no-window'&
                   sleep 4
                   /usr/local/lib/android/sdk/platform-tools/adb devices
                   sleep 40
