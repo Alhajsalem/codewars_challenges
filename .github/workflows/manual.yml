@@ -36,7 +36,7 @@ jobs:
                   echo "check devices againr"
                   /usr/local/lib/android/sdk/platform-tools/adb devices
                   echo "installing the app"
-                  /usr/local/lib/android/sdk/platform-tools/adb install /home/runner/work/codewars_challenges/codewars_challenges/apps/app.apk
+                  /usr/local/lib/android/sdk/platform-tools/adb install /home/runner/work/codewars_challenges/codewars_challenges/apps/app-debug.apk
                   echo "everything is fine.. deleting docker container again"
                   docker container stop emulator-headless
                   docker container rm emulator-headless
