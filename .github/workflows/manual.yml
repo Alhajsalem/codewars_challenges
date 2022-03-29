@@ -31,7 +31,7 @@ jobs:
                   sleep 4
                   docker exec -t emulator-headless /bin/sh -c  'echo no | avdmanager create avd --force -n avd28 -k "system-images;android-29;google_apis;x86_64"'
                   sleep 4
-                  docker exec -t emulator-headless  /bin/sh -c  'emulator -avd avd28 -no-audio -no-window -no-accel -partition-size 8000 -wipe-data -no-window -no-boot-anim'&
+                  docker exec -t emulator-headless  /bin/sh -c  'emulator -avd avd28 -no-audio -no-window -no-accel -partition-size 8000 -no-snapshot-load -wipe-data -no-window -no-boot-anim'&
                   sleep 150
                   echo "check devices againr"
                   /usr/local/lib/android/sdk/platform-tools/adb devices
@@ -39,6 +39,7 @@ jobs:
                   
                   echo "installing the app"
                   /usr/local/lib/android/sdk/platform-tools/adb install /home/runner/work/codewars_challenges/codewars_challenges/apps/app-debug.apk
+                  /usr/local/lib/android/sdk/platform-tools/adb shell pm list packages
                   echo "everything is fine.. deleting docker container again"
                   docker container stop emulator-headless
                   docker container rm emulator-headless
