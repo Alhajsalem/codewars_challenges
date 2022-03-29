@@ -22,14 +22,15 @@ jobs:
                   echo "starting installing"
                   /usr/local/lib/android/sdk/platform-tools/adb version  
                   /usr/local/lib/android/sdk/platform-tools/adb kill-server
+                  
                   /usr/local/lib/android/sdk/cmdline-tools/latest/bin/sdkmanager "platform-tools" "platforms;android-29" "emulator"
-                  /usr/local/lib/android/sdk/cmdline-tools/latest/bin/sdkmanager "system-images;android-29;default;arm64-v8a"
+                  /usr/local/lib/android/sdk/cmdline-tools/latest/bin/sdkmanager "system-images;android-29;default;x86_64"
                   docker run  --privileged -d --name emulator-headless  -p 5037:5037 -v /usr/local/lib/android/sdk:/opt/android-sdk thyrlian/android-sdk
                   /usr/local/lib/android/sdk/platform-tools/adb connect 0.0.0.0:5037 && /usr/local/lib/android/sdk/platform-tools/adb connect 0.0.0.0:5037
                   sleep 3
                   /usr/local/lib/android/sdk/platform-tools/adb devices
                   sleep 4
-                  docker exec -t emulator-headless /bin/sh -c  'echo no | avdmanager create avd --force -n avd28 -k "system-images;android-29;default;arm64-v8a"'
+                  docker exec -t emulator-headless /bin/sh -c  'echo no | avdmanager create avd --force -n avd28 -k "system-images;android-29;default;x86_64"'
                   sleep 4
                   docker exec -t emulator-headless  /bin/sh -c  'emulator -avd avd28 -no-audio -no-window -no-accel -partition-size 11000 -no-snapshot-load -wipe-data -no-window -no-boot-anim'&
                   sleep 150
