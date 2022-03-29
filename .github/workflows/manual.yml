@@ -20,7 +20,8 @@ jobs:
                   ls /home/runner/work/codewars_challenges/codewars_challenges
                   sudo apt-get update
                   echo "starting installing"
-                  /usr/local/lib/android/sdk/platform-tools/adb version  
+                  /usr/local/lib/android/sdk/platform-tools/adb version 
+                  /usr/local/lib/android/sdk/platform-tools/adb devices | grep emulator
                   /usr/local/lib/android/sdk/platform-tools/adb kill-server
                   
                   /usr/local/lib/android/sdk/cmdline-tools/latest/bin/sdkmanager "platform-tools" "platforms;android-29" "emulator"
@@ -33,7 +34,7 @@ jobs:
                   docker exec -t emulator-headless /bin/sh -c  'echo no | avdmanager create avd --force -n avd28 -k "system-images;android-29;default;x86_64"'
                   sleep 4
                   docker exec -t emulator-headless  /bin/sh -c  'emulator -avd avd28 -no-audio -no-window -no-accel -partition-size 11000 -no-snapshot-load -wipe-data -no-window -no-boot-anim'&
-                  sleep 150
+                  sleep 120
                   echo "check devices again"
                   /usr/local/lib/android/sdk/platform-tools/adb devices
                   /usr/local/lib/android/sdk/platform-tools/adb shell pm list packages
