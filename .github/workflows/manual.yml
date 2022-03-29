@@ -31,7 +31,7 @@ jobs:
                   sleep 4
                   docker exec -t emulator-headless /bin/sh -c  'echo no | avdmanager create avd --force -n avd28 -k "system-images;android-29;google_apis;x86_64"'
                   sleep 4
-                  docker exec -t emulator-headless  /bin/sh -c  'emulator -avd avd28 -no-audio -no-window -no-accel -partition-size 8000 -no-snapshot-load -wipe-data -no-window -no-boot-anim'&
+                  docker exec -t emulator-headless  /bin/sh -c  'emulator -avd avd28 -no-audio -no-window -no-accel -partition-size 8000M -no-snapshot-load -wipe-data -no-window -no-boot-anim'&
                   sleep 150
                   echo "check devices againr"
                   /usr/local/lib/android/sdk/platform-tools/adb devices
