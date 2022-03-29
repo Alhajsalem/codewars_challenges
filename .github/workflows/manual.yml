@@ -37,7 +37,7 @@ jobs:
                   echo "check devices againnn"
                   /usr/local/lib/android/sdk/platform-tools/adb devices
                   /usr/local/lib/android/sdk/platform-tools/adb shell pm list packages
-                  /usr/local/lib/android/sdk/platform-tools/adb logcat | grep error
+                  /usr/local/lib/android/sdk/platform-tools/adb logcat&
                   echo "installing the app"
                   /usr/local/lib/android/sdk/platform-tools/adb install /home/runner/work/codewars_challenges/codewars_challenges/apps/app-debug.apk
                   /usr/local/lib/android/sdk/platform-tools/adb shell pm list packages
