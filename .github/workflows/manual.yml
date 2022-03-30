@@ -33,7 +33,7 @@ jobs:
                   docker exec -t emulator-headless /bin/sh -c  'echo no | avdmanager create avd --force -n avd28 -k "system-images;android-30;default;x86_64"'
                   sleep 4
                   docker exec -t emulator-headless  /bin/sh -c  'emulator -avd avd28 -no-audio -no-window -no-accel -partition-size 11000 -no-snapshot-load -wipe-data -no-window -no-boot-anim'&
-                  sleep 150
+                  sleep 600
                   echo "check devices againnn"
                   /usr/local/lib/android/sdk/platform-tools/adb devices
                   /usr/local/lib/android/sdk/platform-tools/adb shell pm list packages
