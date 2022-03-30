@@ -39,8 +39,8 @@ jobs:
                   /usr/local/lib/android/sdk/platform-tools/adb devices
                   /usr/local/lib/android/sdk/platform-tools/adb shell pm list packages
                   echo "installing the app"
-                  /usr/local/lib/android/sdk/platform-tools/adb install /home/runner/work/codewars_challenges/codewars_challenges/apps/app-x86_64-release.apk
-                  /usr/local/lib/android/sdk/platform-tools/adb shell pm list packages
+                  /usr/local/lib/android/sdk/platform-tools/adb install /home/runner/work/codewars_challenges/codewars_challenges/apps/app-x86_64-release.apk || true
+                  /usr/local/lib/android/sdk/platform-tools/adb shell pm list packages | grep mde
                   echo "everything is fine.. deleting docker container again"
                   docker container stop emulator-headless
                   docker container rm emulator-headless
