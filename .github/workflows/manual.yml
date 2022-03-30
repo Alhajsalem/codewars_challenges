@@ -17,6 +17,7 @@ jobs:
             - name: start emulator headless
               shell: bash
               run: |
+                  set -x
                   ls /home/runner/work/codewars_challenges/codewars_challenges
                   sudo apt-get update
                   echo "starting installing"
