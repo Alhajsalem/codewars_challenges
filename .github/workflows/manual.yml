@@ -17,6 +17,7 @@ jobs:
             - name: start emulator headless
               shell: bash
               run: |
+                  set -x
                   ls /home/runner/work/codewars_challenges/codewars_challenges
                   sudo apt-get update
                   echo "starting installing"
@@ -32,13 +33,17 @@ jobs:
                   sleep 4
                   docker exec -t emulator-headless /bin/sh -c  'echo no | avdmanager create avd --force -n avd28 -k "system-images;android-29;default;x86_64"'
                   sleep 4
-                  docker exec -t emulator-headless  /bin/sh -c  'emulator -avd avd28 -no-audio -no-window -no-accel -partition-size 11000 -no-snapshot-load -wipe-data -no-window -no-boot-anim'&
+                  docker exec -t emulator-headless  /bin/sh -c  'emulator -avd avd28 -no-audio -no-window -no-accel -partition-size 12000 -no-snapshot-load -wipe-data -no-window -no-boot-anim'&
                   sleep 150
                   echo "check devices againnn"
                   /usr/local/lib/android/sdk/platform-tools/adb devices
                   /usr/local/lib/android/sdk/platform-tools/adb shell pm list packages
                   echo "installing the app"
-                  /usr/local/lib/android/sdk/platform-tools/adb install /home/runner/work/codewars_challenges/codewars_challenges/apps/app.apk
+                  /usr/local/lib/android/sdk/platform-tools/adb logcat&
+                  /usr/local/lib/android/sdk/platform-tools/adb install /home/runner/work/codewars_challenges/codewars_challenges/apps/app-x86_64-release.apk || true
+                  /usr/local/lib/android/sdk/platform-tools/adb kill-server
+                  /usr/local/lib/android/sdk/platform-tools/adb start-server
+                  /usr/local/lib/android/sdk/platform-tools/adb devices
                   /usr/local/lib/android/sdk/platform-tools/adb shell pm list packages
                   echo "everything is fine.. deleting docker container again"
                   docker container stop emulator-headless
