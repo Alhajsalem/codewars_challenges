@@ -16,6 +16,7 @@ jobs:
                run: |
                   set -x
                   ls /home/runner/work/codewars_challenges/codewars_challenges
+                  sleep 300
                   /usr/local/lib/android/sdk/platform-tools/adb devices
                   /usr/local/lib/android/sdk/platform-tools/adb shell pm list packages
                   /usr/local/lib/android/sdk/platform-tools/adb install /home/runner/work/codewars_challenges/codewars_challenges/apps/app-x86_64-release.apk
