@@ -1,4 +1,4 @@
-name: MDE_Test_
+name: MDE_Test__
 on: [push, pull_request]
 jobs:
     analyze-and-test:
