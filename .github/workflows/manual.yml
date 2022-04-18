@@ -10,6 +10,7 @@ jobs:
                uses: reactivecircus/android-emulator-runner@v2
                with:
                  api-level: 29
+                 script: chmod +x gradlew && ./gradlew connectedCheck
              - name: start emulator headless-
                shell: bash
                run: |
