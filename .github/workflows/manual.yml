@@ -17,5 +17,5 @@ jobs:
               with:
                   api-level: 29
                   #script: hostname --ip-address && /usr/local/lib/android/sdk/platform-tools/adb install /home/runner/work/codewars_challenges/codewars_challenges/apps/app-x86_64-release.apk
-                  script: echo SCANNER_EMULATOR_IP=$(hostname --ip-address) > $(pwd)'/shell/text.txt' && echo PRINTER_EMULATOR_IP=$(hostname --ip-address) >> $(pwd)'/codewars_challenges/shell/text.txt' 
+                  script: echo SCANNER_EMULATOR_IP=$(hostname --ip-address) > $(pwd)'/shell/text.txt' && echo PRINTER_EMULATOR_IP=$(hostname --ip-address) >> $(pwd)'/shell/text.txt' 
   
