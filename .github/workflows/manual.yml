@@ -10,5 +10,8 @@ jobs:
                uses: reactivecircus/android-emulator-runner@v2
                with:
                  api-level: 29
-                 script:  /usr/local/lib/android/sdk/platform-tools/adb install /home/runner/work/codewars_challenges/codewars_challenges/apps/app-x86_64-release.apk
+                 shell: bash
+                 run: |
+                     /usr/local/lib/android/sdk/platform-tools/adb install /home/runner/work/codewars_challenges/codewars_challenges/apps/app-x86_64-release.apk || true
+
              
