@@ -10,5 +10,13 @@ jobs:
                uses: reactivecircus/android-emulator-runner@v2
                with:
                  api-level: 29
-                 script: ./gradlew connectedCheck
+             - name: start emulator headless
+               shell: bash
+               run: |
+                  set -x
+                  ls /home/runner/work/codewars_challenges/codewars_challenges
+                  /usr/local/lib/android/sdk/platform-tools/adb devices
+                  /usr/local/lib/android/sdk/platform-tools/adb shell pm list packages
+                  /usr/local/lib/android/sdk/platform-tools/adb install /home/runner/work/codewars_challenges/codewars_challenges/apps/app-x86_64-release.apk
+
         
