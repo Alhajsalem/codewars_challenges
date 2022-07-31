@@ -15,3 +15,10 @@ def zero_fuel(distance_to_pump, mpg, fuel_left):
 
 zero_fuel(50, 25, 2)#, True)
 zero_fuel(100, 50, 1)#, False)
+
+
+def ordered_count(inp):
+    return [(r,inp.count(r)) for r in sorted(set(inp), key=inp.index)]
+
+ordered_count('abracadabra')
+#('abracadabra', [('a', 5), ('b', 2), ('r', 2), ('c', 1), ('d', 1)]),
