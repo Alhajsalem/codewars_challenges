@@ -40,8 +40,13 @@ public class Sid {
             return set.stream().mapToInt(i->i).toArray();
         }
         } */
+        public static String switcheroo(String x) {   
+            return x.replace("b", "*").replace("a", "#").replace("*", "a").replace("#", "b");
+          }
+
         public static void main(String[] args) {
-            int[] duplicatesInOrder1 = new int[]{1, 3, 2, 3, 2, 1, 2, 3, 1, 1, 3, 2};
-            System.out.println(unique(duplicatesInOrder1));
+            //int[] duplicatesInOrder1 = new int[]{1, 3, 2, 3, 2, 1, 2, 3, 1, 1, 3, 2};
+            System.out.println(switcheroo( "bac"));
+            //System.out.println(unique(duplicatesInOrder1));
         }
 }

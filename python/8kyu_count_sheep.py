@@ -22,3 +22,11 @@ def ordered_count(inp):
 
 ordered_count('abracadabra')
 #('abracadabra', [('a', 5), ('b', 2), ('r', 2), ('c', 1), ('d', 1)]),
+
+def sequence_sum(begin_number, end_number, step):
+    sum = 0;
+    for i in range(begin_number,end_number+1,step):
+        sum += i;
+    return sum;
+
+sequence_sum(2, 6, 2)
